@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.sch"
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://pds.nasa.gov/pds4/pds/v1  http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.xsd">
+    
+<!-- Modification History
+    v 1.0.0.0 created by Trent Hare to provide initial generic mission attributes
+    -->
+
+    <name>CLIPPER</name>
+    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <full_name>Trent Hare</full_name>
+    <steward_id>img</steward_id>
+    <namespace_id>clipper</namespace_id>
+    <comment>
+        The CLIPPER dictionary contains classes that describe aspects of the 
+        Europa Clipper Orbiter mission and related instruments.
+
+        Created with lddtool -lpMsnJ PDS4_CLIPPER_IngestLDD.xml
+
+        CLIPPER version 1.0.0.0 (2020-04-09)
+        Trent Hare, Initial version
+    </comment>
+    
+    <last_modification_date_time>2020-04-09T16:00Z</last_modification_date_time>
+ 
+<!-- Start of attribute definitions -->
+ 
+    <DD_Attribute>
+        <name>mission_phase_name</name>
+        <version_id>0.1</version_id>
+        <local_identifier>clipper.mission_phase_name</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The mission_phase_name identifies a time period within the mission.</definition>
+        <!-- just an initial guess at phases -->
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+            <DD_Permissible_Value>
+                <value>Inner Cruise 1</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Quiet Cruise</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Outer Cruise</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Jupiter Approach</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Capture Orbit</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Period Reduction Maneuver</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Orbits 1-2</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Science Orbits</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>spacecraft_clock_start_count</name>
+        <version_id>0.1</version_id>
+        <local_identifier>clipper.spacecraft_clock_start_count</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The spacecraft_clock_start_count attribute provides the value of the spacecraft 
+            clock at the actual start of image acquisition. There may be small inconsistencies with 
+            start_date_time due to varying correlation between UTC and the spacecraft clock. For 
+            purposes of data analysis the spacecraft clock value should be used. The format of this 
+            field is compatible with the NAIF Toolkit software where s = seconds converted from the 
+            clock's coarse counter and m = seconds converted from the clock's fine counter.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <formation_rule>sssssssss.mm[m]</formation_rule>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>spacecraft_clock_stop_count</name>
+        <version_id>0.1</version_id>
+        <local_identifier>clipper.spacecraft_clock_stop_count</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The spacecraft_clock_stop_count attribute provides the value of the spacecraft 
+            clock at the actual end of image acquisition. There may be small inconsistencies with 
+            stop_date_time due to varying correlation between UTC and the spacecraft clock. For purposes 
+            of data analysis the spacecraft clock value should be used. The format of this field is 
+            compatible with the NAIF Toolkit software where s = seconds converted from the clock's 
+            coarse counter and m = seconds converted from the clock's fine counter.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <formation_rule>sssssssss.mm[m]</formation_rule>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>release_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.release_number</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Release_number is the number of a scheduled release of JunoCam data from PDS. The
+            first Juno data release is Release 1. The release_number for a given product is always the
+            first release in which it appears, and does not change if the product is revised
+            later.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>orbit_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.orbit_number</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The orbit_number attribute identifies the number of the orbital revolution of the
+            spacecraft around a target body. This value is N/A for cruise images.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>begin_temperature_fpa</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.begin_temperature_fpa</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>begin_temperature_fpa_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.begin_temperature_fpa_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>begin_temperature_scs</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.begin_temperature_scs</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>begin_temperature_scs_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.begin_temperature_scs_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>compression_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.compression_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Indicates if lossless compression was commanded (0=no, 1=yes)</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>dac_reset_level</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.dac_reset_level</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Records the commanded DAC reset level for the NAC</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>data_quality_desc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.data_quality_desc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The data_quality_desc attribute describes the data qualities
+           associated with a data_quality_id attribute.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Text_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>data_quality_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.data_quality_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The data_quality_id attribute provides a numeric key which
+            identifies the quality of data available for a particular time period. 
+            The data_quality_id scheme is unique to a given instrument and is 
+            described by the associated data_quality_desc attribute.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>end_temperature_fpa</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.end_temperature_fpa</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>end_temperature_fpa_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.end_temperature_fpa_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>end_temperature_scs</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.end_temperature_scs</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>end_temperature_scs_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.end_temperature_scs_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>exposure_code</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.exposure_code</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Records the commanded exposure code for a WAC observation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- need valid enumerations, currently based on LROC WAC -->
+        <name>instrument_mode_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.instrument_mode_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Records the commanded WAC mode: BW, COLOR, VIS or UV.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>BW</value>
+                <value_meaning>The commanded WAC instrument mode was BW.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>COLOR</value>
+                <value_meaning>The commanded WAC instrument mode was COLOR.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>VIS</value>
+                <value_meaning>The commanded WAC instrument mode was VIS.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>UV</value>
+                <value_meaning>The commanded WAC instrument mode was UV.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>interframe_delay</name> <!-- need valid -->
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.interframe_delay</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Set to the value of the interframe delay between WAC framelets. Keyword can have
+            values between 25/64 and 280/64 seconds, in 1/64 seconds increments.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+			<unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>interframe_gap_code</name> <!-- need valid -->
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.interframe_gap_code</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Records the commanded interframe gap code for a WAC observation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>line_code</name> <!-- need valid -->
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.line_code</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Records the commanded value for the number of NAC lines to acquire,
+            in 1024 increments. (LINES = LINES_CODE * 1024)</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>line_exposure_code</name> <!-- need valid -->
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.line_exposure_code</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Index range from 0 to 4095 each corresponding to one LINE_EXPOSURE_DURATION increment.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>4095</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>line_exposure_duration</name> <!-- need valid -->
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.line_exposure_duration</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+            For NAC, LINE_EXPOSURE_DURATION can have values between 337.6 and 
+            35,281.6 microseconds, in 128/15 microsecond increments
+            (LINE_EXPOSURE_DURATION = [LINE_EXPOSURE_CODE * 128/15] + 337.6)
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+			<unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>lookup_table_type</name> <!-- need valid -->
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.lookup_table_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Always set to STORED.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>STORED</value>
+                <value_meaning>TBD</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>middle_temperature_fpa</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.middle_temperature_fpa</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>middle_temperature_fpa_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.middle_temperature_fpa_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>middle_temperature_scs</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.middle_temperature_scs</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>middle_temperature_scs_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.middle_temperature_scs_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>mode</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.mode</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Set to the mode value as commanded for both NAC and WAC observations.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>nframes</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.nframes</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Records the commanded number of frames for a WAC observation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>preroll_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.preroll_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The UTC time and date at the start of the image acquisition command, 
+            corresponding to the acquisition of 1024 lines at the given exposure prior to the 
+            actual image acquisition.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>producer_institution_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.producer_institution_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The producer_institution_name attribute identifies a university,
+            research center, NASA center, or other institution associated with the 
+            production of a data product.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>product_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.product_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>The product_type attribute indicates the processing
+            level of an individual data product.</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>EDR</value>
+                <value_meaning>Experiment Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RDR</value>
+                <value_meaning>Reduced Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CDR</value>
+                <value_meaning>Calibrated Data Record</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>product_version_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.product_version_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The product_version_id attribute identifies the version of an
+           individual data product.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>rationale_desc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.rationale_desc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The rationale_desc attribute describes the rationale for performing a particular observation.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>spacecraft_clock_count_partition</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.spacecraft_clock_count_partition</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The spacecraft_clock_count_partition attribute indicates the clock partition active
+            for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>spacecraft_clock_preroll_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.spacecraft_clock_preroll_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Set to the sclk string for the start of an observation preroll acquisition.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <pattern>([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{5})?</pattern>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_fpa</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_fpa</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+			<unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_fpa_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_fpa_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_fpga</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_fpga</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+			<unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_fpga_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_fpga_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_scs</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_scs</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+			<unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_scs_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_scs_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_telescope</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_telescope</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+			<unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>temperature_telescope_raw</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.temperature_telescope_raw</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>upload_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.upload_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The upload_id attribute describes a spacecraft command set that is associated with the given data product.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+<!-- End of attribute definitions -->
+
+<!-- Beginning of class definitions -->
+    
+    <DD_Class>
+        <name>Observation_Information</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Observation_Information</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The Observation_Information class provides information about a science observation.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        
+        <DD_Association>
+            <identifier_reference>clipper.mission_phase_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.orbit_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.release_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.spacecraft_clock_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.spacecraft_clock_stop_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.EIS_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+
+<!-- Beginning of EIS_Parameters Class definition, current attributes based on LROC  -->
+    
+    <DD_Class>
+        <name>EIS_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.EIS_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>TBD</definition>
+        <DD_Association>
+            <identifier_reference>clipper.upload_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.rationale_desc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.data_quality_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.data_quality_desc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+
+        <!-- WAC specific attributes -->
+        <DD_Association>
+            <identifier_reference>clipper.begin_temperature_scs</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.middle_temperature_scs</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.end_temperature_scs</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.begin_temperature_fpa</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.middle_temperature_fpa</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.end_temperature_fpa</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.begin_temperature_scs_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.middle_temperature_scs_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.end_temperature_scs_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.begin_temperature_fpa_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.middle_temperature_fpa_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.end_temperature_fpa_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+ 
+        <!-- NAC specific attributes -->
+        <DD_Association>
+            <identifier_reference>clipper.preroll_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.spacecraft_clock_preroll_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        
+        <!-- NAC environment attributes -->
+        <DD_Association>
+            <identifier_reference>clipper.temperature_scs</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.temperature_fpa</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.temperature_fpga</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.temperature_telescope</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.temperature_scs_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.temperature_fpa_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.temperature_fpga_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.temperature_telescope_raw</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+                
+        <!-- WAC and NAC imaging attributes -->
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.exposure_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.interframe_delay</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.instrument_mode_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.lookup_table_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- NAC -->
+            <identifier_reference>clipper.line_exposure_duration</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- NAC -->
+            <identifier_reference>clipper.line_exposure_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- NAC -->
+            <identifier_reference>clipper.dac_reset_level</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- NAC -->
+            <identifier_reference>clipper.channel_a_offset</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- NAC -->
+            <identifier_reference>clipper.channel_b_offset</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC -->
+            <identifier_reference>clipper.compand_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- NAC -->
+            <identifier_reference>clipper.line_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC -->
+            <identifier_reference>clipper.compression_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC -->
+            <identifier_reference>clipper.mode</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.nframes</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.band_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.interframe_gap_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC -->
+            <identifier_reference>clipper.background_offset</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End of EIS_Parameters Class definition -->
+    
+    <!-- Beginning of CLIPPER_Parameters Class definition -->
+    <DD_Class> <!-- CLIPPER_Parameters -->
+        <name>CLIPPER_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.CLIPPER_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The CLIPPER_Parameters class is the container for mission-specific metadata elements.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>clipper.product_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.product_version_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.orbit_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.mission_phase_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.spacecraft_clock_count_partition</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.spacecraft_clock_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.spacecraft_clock_stop_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.producer_institution_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.EIS_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+<!-- End of class definitions -->
+    
+<!-- Beginning of CLIPPER Mission Dictionary Rules -->
+    
+    <DD_Rule>
+        <local_identifier>clipper.sclk_rule</local_identifier>
+        <rule_context>/pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/clipper:CLIPPER_Parameters</rule_context>
+        
+        <DD_Rule_Statement>
+            <rule_type>Assert</rule_type>
+            <rule_test>if ( 
+                            (clipper:spacecraft_clock_count_partition) 
+                            or 
+                            ( (contains(clipper:spacecraft_clock_start_count,'/') ) 
+                               and
+                              (contains(clipper:spacecraft_clock_stop_count,'/') ) 
+                            ) 
+                            or 
+                            ( (not (clipper:spacecraft_clock_count_partition)) 
+                               and (not (clipper:spacecraft_clock_start_count)) 
+                               and (not (clipper:spacecraft_clock_stop_count)) 
+                            ) 
+                           ) then true() else false() 
+            </rule_test>
+            <rule_message>
+                clipper:error:sclk_rule_0: If clipper:spacecraft_clock_start_count and clipper:spacecraft_clock_stop_count are
+                present, they must begin with a partition number followed by a forward slash, OR the partition number must be given by
+                clipper:spacecraft_clock_count_partition. 
+            </rule_message>
+            <rule_description>
+                If spacecraft_clock_start_count and spacecraft_clock_stop_count are present, they must begin with a
+                partition number followed by a forward slash, OR the partition number must be given by spacecraft_clock_count_partition.
+            </rule_description>
+        </DD_Rule_Statement>
+    </DD_Rule>
+
+<!-- End of CLIPPER Mission Dictionary Rules -->
+    
+</Ingest_LDD>

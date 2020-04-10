@@ -22,5 +22,5 @@ This LDD has been built for the following versions of the PDS4 information model
 Each build is generating using the [lddtool](https://pds.nasa.gov/pds4/software/ldd/) specific to a version of the [PDS4 Information Model](https://pds.nasa.gov/pds4/doc/im/). The build command used is:
 
 ```
-lddtool -lpsnJ ldd-file.xml
+lddtool -lpMsnJ ldd-file.xml
 ```
