@@ -268,7 +268,50 @@
         </DD_Value_Domain>
     </DD_Attribute>
 
-    <!-- begin temperature attributes -->
+    <DD_Attribute>
+        <name>flight_software_version_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.flight_software_version_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Indicates version of instrument flight software used to acquire image. 
+            For example, “1.00".</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type> <!-- String? -->
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>command_sequence_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.command_sequence_number</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Numeric identifier for the sequence of commands sent to the spacecraft 
+            which include this image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>    
+
+    <DD_Attribute>
+        <name>image_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.image_id</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Numeric identifier for this image within the onboard command sequence.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>  
+
+    <!-- begin instrument temperature attributes -->
     
     <DD_Attribute>
         <name>temperature_fpa</name>
@@ -783,6 +826,94 @@
         </DD_Value_Domain>
     </DD_Attribute>
 
+    <!-- E-THEMIS attributes -->
+
+    <DD_Attribute> 
+        <name>maximum_brightness_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.maximum_brightness_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Maximum brightness temperature value measured within the image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> 
+        <name>minimum_brightness_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.minimum_brightness_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Minimum brightness temperature value measured within the image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>spatial_summing</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.spatial_summing</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Onboard spatial average of NxN set of pixels, where N is the value of 
+            the keyword. SPATIAL_SUMMING = 1 implies that no spatial averaging has been 
+            applied to the image. .</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>time_delay_integration_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.time_delay_integration_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Status of onboard algorithm which applies a temporal average of 
+            successive lines in an IR image; when enabled, THEMIS TDI averages 16 
+            detector rows to equal one line in an IR image. “ENABLED” or “DISABLED”.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>ENABLED</value>
+                <value_meaning>The commanded time delay integration was enabled.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>DISABLED</value>
+                <value_meaning>The commanded time delay integration was disabled.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>uncorrected_sclk_start_count</name>
+        <version_id>0.1</version_id>
+        <local_identifier>clipper.uncorrected_sclk_start_count</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The spacecraft clock value (in seconds) when the instrument was 
+            commanded to acquire an  observation.  This can differ from the 
+            spacecraft_clock_start_count by as much as 4 seconds, depending on which 
+            bands are acquired in the image.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <formation_rule>sssssssss.mm[m]</formation_rule>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
 <!-- End of attribute definitions -->
 
 <!-- Beginning of class definitions (as built from attributes) -->
@@ -870,6 +1001,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.EIS_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.EThemis_Parameters</identifier_reference>
             <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -1115,6 +1252,92 @@
     </DD_Class>
     
     <!-- end of EIS_Parameters Class definition -->
+     
+    <!-- Beginning of ETHEMIS_Parameters Class definition, just a wag  -->
+    
+    <DD_Class>
+        <name>ETHEMIS_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.ETHEMIS_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The class contain all the instrument specific attributes for the E-THEMIS instrument.</definition>
+        
+        <DD_Association>
+            <identifier_reference>clipper.upload_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        
+        <DD_Association>
+            <identifier_reference>clipper.maximum_brightness_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.minimum_brightness_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.spatial_summing</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.time_delay_integration_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.uncorrected_sclk_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.interframe_delay</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.instrument_mode_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.line_exposure_duration</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.line_exposure_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.compression_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.interframe_gap_code</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <!-- end of ETHEMIS_Parameters Class definition -->
      
 <!-- End of class definitions -->
     
