@@ -1,0 +1,49 @@
+
+>>  INFO The configured IM Versions are:[1G00, 1F00, 1E00, 1D00, 1C00, 1B10, 1B00]
+>>  INFO The provided IM Version 1G00 is valid
+>>  INFO LDDTOOL Version: 13.0.2
+>>  INFO IM Version Id: 1.16.0.0
+>>  INFO IM Namespace Id: pds
+>>  INFO IM Label Version Id: 1.0
+>>  INFO Date: Sat Jun 26 19:02:33 UTC 2021
+>>  INFO PARENT_DIR: /tmp/lddtool-13.0.2
+>>  INFO SCRIPT_DIR: /tmp/lddtool-13.0.2/bin
+>>  INFO LIB_DIR: /tmp/lddtool-13.0.2/lib
+
+>>> INFO Init:  - Config.Properties Namespace Id Using:pds
+>>> INFO Init:  - LDD Dictionary_Type is Mission
+>>> INFO Attribute: <mission_phase_name> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <spacecraft_clock_start_count> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <spacecraft_clock_stop_count> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <release_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <orbit_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <command_sequence_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <image_id> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <uncorrected_sclk_start_count> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <spacecraft_clock_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <spacecraft_clock_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <spacecraft_clock_stop_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <spacecraft_clock_stop_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <release_number> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <orbit_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <command_sequence_number> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <image_id> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <compression_flag> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <compression_flag> - The default maximum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <line_exposure_code> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <line_exposure_code> - The default maximum value provided by the attribute's data type is being overridden with 4095
+>>> INFO Attribute: <spatial_summing> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <uncorrected_sclk_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <uncorrected_sclk_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> WARNING Init:  - Config.Properties Namespace Id Not Found:clipper
+>>> WARNING Attribute: <command_sequence_number> - This local attribute was not used in an Association.
+>>> WARNING Attribute: <flight_software_version_id> - This local attribute was not used in an Association.
+>>> WARNING Attribute: <image_id> - This local attribute was not used in an Association.
+>>> WARNING Header:  - New namespace id has been specified:clipper
+
+ -- LDDTool Execution Summary --
+     5 warning(s)
+     0 error(s)
+     0 fatal error(s)
+
+>>  INFO Exit(0)
