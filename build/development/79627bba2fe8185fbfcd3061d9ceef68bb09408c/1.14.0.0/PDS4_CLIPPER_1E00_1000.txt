@@ -1,18 +1,18 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        13.0.2
+   LDDTool Version        14.1.2
    LDD Version Id:        1.0.0.0
-   LDD Label Version Id:  1.0
+   LDD Label Version Id:  1.20
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Sat Jun 26 19:02:41 UTC 2021
+   Time                   Thu Jan 19 21:29:54 UTC 2023
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
    IM Namespace Id:       pds
-   IM Label Version Id:   1.0
+   IM Label Version Id:   1.20
    IM Object Model        [UpperModel.pont]
    IM Data Dictionary     [dd11179.pins]
    IM Configuration File  [MDPTNConfigClassDisp.xml]
@@ -100,7 +100,7 @@ Parsed Input - Attributes:
    name                   product_type
    version                1.14
    value data type        ASCII_Short_String_Collapsed
-   description            _TBD
+   description            The product_type attribute indicates the processing level of an individual data product.
 
    name                   product_version_id
    version                1.14

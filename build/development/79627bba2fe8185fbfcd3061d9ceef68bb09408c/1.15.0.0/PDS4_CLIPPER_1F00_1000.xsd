@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Sat Jun 26 19:02:33 UTC 2021 -->
-  <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Thu Jan 19 21:29:50 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.16.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.0.0.0 - clipper: - Clipper                                              -->
-  <!--   file:/home/runner/work/ldd-clipper/ldd-clipper/src/PDS4_CLIPPER_IngestL -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/mission/clipper/v1"
@@ -16,7 +15,7 @@
     attributeFormDefault="unqualified"
     version="1.0.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -128,7 +127,7 @@
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test="clipper:mission_phase_name = ('Capture Orbit', 'Inner Cruise 1', 'Jupiter Approach', 'Orbits 1-2', 'Outer Cruise', 'Period Reduction Maneuver', 'Quiet Cruise', 'Science Orbits')"/> -->
-    <!-- <xs:assert test="clipper:product_type = ('CDR', 'EDR', 'RDR')"/> -->
+    <!-- <xs:assert test="clipper:product_type = ('Calibrated', 'Derived', 'Partially Processed', 'Raw')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
@@ -583,7 +582,9 @@
 
   <xs:simpleType name="product_type">
     <xs:annotation>
-<xs:documentation>_TBD</xs:documentation>
+      <xs:documentation>The product_type attribute indicates the
+        processing level of an individual data
+        product.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>

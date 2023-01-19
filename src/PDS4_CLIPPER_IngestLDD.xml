@@ -163,27 +163,44 @@
     </DD_Attribute>
     
     <DD_Attribute>
-        <name>product_type</name> <!-- outdated values? -->
+        <name>product_type</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.product_type</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>The product_type attribute indicates the processing
-            level of an individual data product.</submitter_name>
-        <definition>TBD</definition>
+        <submitter_name>IMG</submitter_name>
+        <definition>The product_type attribute indicates the processing
+            level of an individual data product.</definition>
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
             <DD_Permissible_Value>
-                <value>EDR</value>
-                <value_meaning>Experiment Data Record</value_meaning>
+                <value>Raw</value>
+                <value_meaning>Original data from an instrument. If compression, reformatting, 
+                   packetization, or other translation has been applied to facilitate data 
+                   transmission or storage, those processes will be reversed so that the 
+                   archived data are in a PDS approved archive format.
+                </value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>RDR</value>
-                <value_meaning>Reduced Data Record</value_meaning>
+                <value>Partially Processed</value>
+                <value_meaning>Data that have been processed beyond the raw level but which have 
+                  not yet reached calibrated status.
+                </value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>CDR</value>
-                <value_meaning>Calibrated Data Record</value_meaning>
+                <value>Calibrated</value>
+                <value_meaning>Data converted to physical units, which makes values independent of 
+                  the instrument.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Derived</value>
+                <value_meaning>Results that have been distilled from one or more calibrated data 
+                  products (for example, maps, gravity or magnetic fields, or ring particle size 
+                  distributions). Supplementary data, such as calibration tables or tables of 
+                  viewing geometry, used to interpret observational data should also be classified 
+                  as "derived" data if not easily matched to one of the other categories.
+                </value_meaning>
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
