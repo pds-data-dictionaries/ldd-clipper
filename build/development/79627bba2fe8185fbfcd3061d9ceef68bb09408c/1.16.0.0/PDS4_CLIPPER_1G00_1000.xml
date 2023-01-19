@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML product label for PDS4 V1.16.0.0  Thu Jan 19 21:10:47 UTC 2023 -->
+  <!-- PDS4 XML product label for PDS4 V1.16.0.0  Thu Jan 19 21:29:47 UTC 2023 -->
   <!-- Generated from the PDS4 Information Model V1.16.0.0 - System Build 11.1 -->
   <!-- *** This PDS4 XML product label is an operational deliverable. *** -->
 <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.sch"
@@ -26,9 +26,9 @@
     <File_Area_XML_Schema>
         <File>
             <file_name>PDS4_CLIPPER_1G00_1000.xsd</file_name>
-            <creation_date_time>2023-01-19T13:10:47</creation_date_time>
-            <file_size unit="byte">37683</file_size>
-            <records>859</records>
+            <creation_date_time>2023-01-19T13:29:47</creation_date_time>
+            <file_size unit="byte">37823</file_size>
+            <records>861</records>
         </File>
         <XML_Schema>
             <name>PDS4_CLIPPER_1G00_1000.xsd</name>
@@ -40,8 +40,8 @@
     <File_Area_XML_Schema>
         <File>
             <file_name>PDS4_CLIPPER_1G00_1000.sch</file_name>
-            <creation_date_time>2023-01-19T13:10:47</creation_date_time>
-            <file_size unit="byte">12488</file_size>
+            <creation_date_time>2023-01-19T13:29:47</creation_date_time>
+            <file_size unit="byte">12556</file_size>
             <records>206</records>
         </File>
         <XML_Schema>
