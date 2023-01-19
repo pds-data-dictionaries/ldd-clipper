@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Sat Jun 26 19:02:36 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Thu Jan 19 21:10:54 UTC 2023 -->
   <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.0.0.0 - clipper: - Clipper                                              -->
-  <!--   file:/home/runner/work/ldd-clipper/ldd-clipper/src/PDS4_CLIPPER_IngestL -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/mission/clipper/v1"

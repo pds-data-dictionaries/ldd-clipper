@@ -1,25 +1,24 @@
 
->>  INFO The configured IM Versions are:[1G00, 1F00, 1E00, 1D00, 1C00, 1B10, 1B00]
->>  INFO The provided IM Version 1G00 is valid
->>  INFO LDDTOOL Version: 13.0.2
->>  INFO IM Version Id: 1.16.0.0
+>>  INFO LDDTOOL Version: 14.1.2
+>>  INFO IM Version Id: 1.15.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.0
->>  INFO Date: Sat Jun 26 19:02:33 UTC 2021
->>  INFO PARENT_DIR: /tmp/lddtool-13.0.2
->>  INFO SCRIPT_DIR: /tmp/lddtool-13.0.2/bin
->>  INFO LIB_DIR: /tmp/lddtool-13.0.2/lib
+>>  INFO IM Label Version Id: 1.21
+>>  INFO Date: Thu Jan 19 21:10:54 UTC 2023
+>>  INFO PARENT_DIR: /tmp/lddtool-14.1.2
+>>  INFO SCRIPT_DIR: /tmp/lddtool-14.1.2/bin
+>>  INFO LIB_DIR: /tmp/lddtool-14.1.2/lib
 
->>> INFO Init:  - Config.Properties Namespace Id Using:pds
+>>> INFO Init:  - Config.Properties Namespace Id Found:clipper
+>>> INFO Init:  - Config.Properties Namespace Id Using:clipper
 >>> INFO Init:  - LDD Dictionary_Type is Mission
->>> INFO Attribute: <mission_phase_name> - A 'nilable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <spacecraft_clock_start_count> - A 'nilable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <spacecraft_clock_stop_count> - A 'nilable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <release_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <orbit_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <command_sequence_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <image_id> - A 'nilable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <uncorrected_sclk_start_count> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <mission_phase_name> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <spacecraft_clock_start_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <spacecraft_clock_stop_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <release_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <orbit_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <command_sequence_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <image_id> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <uncorrected_sclk_start_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <spacecraft_clock_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <spacecraft_clock_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> INFO Attribute: <spacecraft_clock_stop_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
@@ -35,15 +34,30 @@
 >>> INFO Attribute: <spatial_summing> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
->>> WARNING Init:  - Config.Properties Namespace Id Not Found:clipper
 >>> WARNING Attribute: <command_sequence_number> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <flight_software_version_id> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <image_id> - This local attribute was not used in an Association.
->>> WARNING Header:  - New namespace id has been specified:clipper
 
  -- LDDTool Execution Summary --
-     5 warning(s)
+     3 warning(s)
      0 error(s)
      0 fatal error(s)
+
+Input:
+
+     - IM Version: 1F00
+     - PDS4 Flag: true
+     - LDD Flag: true
+     - IM Version: true
+     - Export JSON Flag: true
+
+     - Ingest LDD(s): /home/runner/work/ldd-clipper/ldd-clipper/src/PDS4_CLIPPER_IngestLDD.xml
+
+Output:
+
+     - ./PDS4_CLIPPER_1F00_1000.xsd
+     - ./PDS4_CLIPPER_1F00_1000.sch
+     - ./PDS4_CLIPPER_1F00_1000.xml
+     - ./PDS4_CLIPPER_1F00_1000.JSON
 
 >>  INFO Exit(0)
