@@ -152,7 +152,7 @@
     <DD_Attribute>
         <name>encounter_id</name>
         <version_id>1.0</version_id>
-        <local_identifier>clipper.encounter_id </local_identifier>
+        <local_identifier>clipper.encounter_id</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>The Playback and Flyby periods together comprise an Encounter, 
