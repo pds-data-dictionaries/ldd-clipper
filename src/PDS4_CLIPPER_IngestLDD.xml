@@ -15,11 +15,11 @@
         The Clipper dictionary contains classes that describe aspects of the 
         Europa Clipper Orbiter mission and related instruments.
 
-        Clipper version 1.0.0.0 (2020-04-10)
+        Clipper version 1.0.0.0 (2023-07-19)
         Trent Hare, Initial version, to provide initial generic mission attributes
     </comment>
     
-    <last_modification_date_time>2020-04-10T16:00Z</last_modification_date_time>
+    <last_modification_date_time>2023-07-19T16:07Z</last_modification_date_time>
  
 <!-- Begin attribute definitions -->
     
@@ -136,16 +136,46 @@
         <local_identifier>clipper.orbit_number</local_identifier>
         <nillable_flag>true</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>The orbit_number attribute identifies the number of the orbital revolution of the
-            spacecraft around a target body. This value can optionally be set to 0 for cruise images or
-            not set at all.</definition>
+        <definition>The orbit_number attribute identifies the number of the orbital revolution of the spacecraft 
+          around Jupiter. Prior to JOI (i.e., from launch through cruise including gravity assists), the orbit value 
+          will be 0. After JOI, starting with the first apojove, the value will increase by 1 with each revolution 
+          around Jupiter incrementing at each subsequent apojove.
+        </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
             <minimum_value>0</minimum_value>
+            <maximum_value>1000</maximum_value>
         </DD_Value_Domain>
     </DD_Attribute>        
+
+    <DD_Attribute>
+        <name>encounter_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.encounter_id </local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>The Playback and Flyby periods together comprise an Encounter, 
+          defined as the period of time during the Tour beginning two days before 
+          the targeted closest approach of a Jovian moon, and ending two days before 
+          the next targeted closest approach of a Jovian moon. While most Jupiter 
+          orbits include a targeted flyby, there are some phasing orbits without a 
+          targeted flyby; in these cases, an encounter will span more than one orbit. 
+          Valid values consist of a three-character identifier (e.g., EO1, G02, etc.) 
+          where "E01" indicates the first encounter with Europa and "G02" indicates 
+          the second encounter with Ganymede and so on. There is one more additional 
+          special value of "XXX" representing data collected during cruise up until 
+          the first encounter.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <minimum_characters>3</minimum_characters>
+            <maximum_characters>3</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
     
+
     <DD_Attribute>
         <name>producer_institution_name</name>
         <version_id>1.0</version_id>
@@ -945,6 +975,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.orbit_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.encounter_id</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
