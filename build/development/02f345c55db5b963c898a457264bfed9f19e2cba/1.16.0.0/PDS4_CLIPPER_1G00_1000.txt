@@ -1,13 +1,13 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        14.1.2
+   LDDTool Version        14.2.4
    LDD Version Id:        1.0.0.0
    LDD Label Version Id:  1.22
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Thu Jan 19 21:29:47 UTC 2023
+   Time                   Wed Jul 19 23:15:36 UTC 2023
    Common Schema          [PDS4_PDS_1G00.xsd]
    Common Schematron      [PDS4_PDS_1G00.sch]
    IM Version Id:         1.16.0.0
@@ -30,8 +30,8 @@ Parameters:
 
 Summary:
    Classes                3
-   Attributes             55
-   Associations           61
+   Attributes             56
+   Associations           62
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -48,10 +48,10 @@ Parsed Input - Header:
         The Clipper dictionary contains classes that describe aspects of the 
         Europa Clipper Orbiter mission and related instruments.
 
-        Clipper version 1.0.0.0 (2020-04-10)
+        Clipper version 1.0.0.0 (2023-07-19)
         Trent Hare, Initial version, to provide initial generic mission attributes
     
-   Last Modification Time 2020-04-10T16:00Z
+   Last Modification Time 2023-07-19T16:07Z
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -88,9 +88,17 @@ Parsed Input - Attributes:
    name                   orbit_number
    version                1.16
    value data type        ASCII_Integer
-   description            The orbit_number attribute identifies the number of the orbital revolution of the spacecraft around a target body. This value can optionally be set to 0 for cruise images or not set at all.
+   description            The orbit_number attribute identifies the number of the orbital revolution of the spacecraft around Jupiter. Prior to JOI (i.e., from launch through cruise including gravity assists), the orbit value will be 0. After JOI, starting with the first apojove, the value will increase by 1 with each revolution around Jupiter incrementing at each subsequent apojove. 
    nillable               true
    minimum value          0
+   maximum value          1000
+
+   name                   encounter_id
+   version                1.16
+   value data type        ASCII_Short_String_Collapsed
+   description            The Playback and Flyby periods together comprise an Encounter, defined as the period of time during the Tour beginning two days before the targeted closest approach of a Jovian moon, and ending two days before the next targeted closest approach of a Jovian moon. While most Jupiter orbits include a targeted flyby, there are some phasing orbits without a targeted flyby; in these cases, an encounter will span more than one orbit. Valid values consist of a three-character identifier (e.g., EO1, G02, etc.) where "E01" indicates the first encounter with Europa and "G02" indicates the second encounter with Ganymede and so on. There is one more additional special value of "XXX" representing data collected during cruise up until the first encounter. 
+   minimum characters     3
+   maximum characters     3
 
    name                   producer_institution_name
    version                1.16
@@ -385,6 +393,11 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      clipper.orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clipper.encounter_id
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of

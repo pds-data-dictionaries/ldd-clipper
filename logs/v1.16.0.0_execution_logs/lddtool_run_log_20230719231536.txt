@@ -1,15 +1,13 @@
 
 >>  INFO LDDTOOL Version: 14.2.4
->>  INFO IM Version Id: 1.17.0.0
+>>  INFO IM Version Id: 1.16.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.23
->>  INFO Date: Wed Jul 19 23:10:12 UTC 2023
+>>  INFO IM Label Version Id: 1.22
+>>  INFO Date: Wed Jul 19 23:15:36 UTC 2023
 >>  INFO PARENT_DIR: /tmp/lddtool-14.2.4
 >>  INFO SCRIPT_DIR: /tmp/lddtool-14.2.4/bin
 >>  INFO LIB_DIR: /tmp/lddtool-14.2.4/lib
 
->>> ERROR Class:0001_NASA_PDS_1.clipper.Observation_Information  Association:clipper.encounter_id  Attribute: clipper.encounter_id - Missing Attribute
->>> ERROR Association: clipper.encounter_id - Could not find referenced attribute - Reference Type: attribute_of
 >>> INFO Init:  - Config.Properties Namespace Id Found:clipper
 >>> INFO Init:  - Config.Properties Namespace Id Using:clipper
 >>> INFO Init:  - LDD Dictionary_Type is Mission
@@ -40,18 +38,17 @@
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> WARNING Attribute: <command_sequence_number> - This local attribute was not used in an Association.
->>> WARNING Attribute: <encounter_id> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <flight_software_version_id> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <image_id> - This local attribute was not used in an Association.
 
  -- LDDTool Execution Summary --
-     4 warning(s)
-     2 error(s)
+     3 warning(s)
+     0 error(s)
      0 fatal error(s)
 
 Input:
 
-     - IM Version: 1H00
+     - IM Version: 1G00
      - PDS4 Flag: true
      - LDD Flag: true
      - IM Version: true
@@ -61,9 +58,9 @@ Input:
 
 Output:
 
-     - ./PDS4_CLIPPER_1H00_1000.xsd
-     - ./PDS4_CLIPPER_1H00_1000.sch
-     - ./PDS4_CLIPPER_1H00_1000.xml
-     - ./PDS4_CLIPPER_1H00_1000.JSON
+     - ./PDS4_CLIPPER_1G00_1000.xsd
+     - ./PDS4_CLIPPER_1G00_1000.sch
+     - ./PDS4_CLIPPER_1G00_1000.xml
+     - ./PDS4_CLIPPER_1G00_1000.JSON
 
->>  INFO Exit(1)
+>>  INFO Exit(0)
