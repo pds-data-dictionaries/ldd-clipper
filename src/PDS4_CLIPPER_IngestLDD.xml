@@ -145,12 +145,12 @@
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
             <minimum_value>0</minimum_value>
-            <maximum_value>1000</maximum_value>
+            <maximum_value>511</maximum_value>
         </DD_Value_Domain>
     </DD_Attribute>        
 
     <DD_Attribute>
-        <name>encounter_id</name>
+        <name>encounter_idencounter_id</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.encounter_id</local_identifier>
         <nillable_flag>false</nillable_flag>
