@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Thu Jan 19 21:29:54 UTC 2023 -->
-  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Wed Jul 19 23:15:40 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.0.0.0 - clipper: - Clipper                                              -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -15,7 +15,7 @@
     attributeFormDefault="unqualified"
     version="1.0.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -23,7 +23,7 @@
         The Clipper dictionary contains classes that describe aspects of the 
         Europa Clipper Orbiter mission and related instruments.
 
-        Clipper version 1.0.0.0 (2020-04-10)
+        Clipper version 1.0.0.0 (2023-07-19)
         Trent Hare, Initial version, to provide initial generic mission attributes
     
     </xs:documentation>
@@ -112,6 +112,7 @@
     <xs:sequence>
       <xs:element name="mission_phase_name" nillable="true" type="clipper:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="orbit_number" nillable="true" type="clipper:orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="encounter_id" type="clipper:encounter_id" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="product_type" type="clipper:product_type" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="product_version_id" type="clipper:product_version_id" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="producer_institution_name" type="clipper:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -247,6 +248,28 @@
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
      <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="encounter_id">
+    <xs:annotation>
+      <xs:documentation>The Playback and Flyby periods together comprise
+        an Encounter, defined as the period of time during the Tour
+        beginning two days before the targeted closest approach of a
+        Jovian moon, and ending two days before the next targeted
+        closest approach of a Jovian moon. While most Jupiter orbits
+        include a targeted flyby, there are some phasing orbits without
+        a targeted flyby; in these cases, an encounter will span more
+        than one orbit. Valid values consist of a three-character
+        identifier (e.g., EO1, G02, etc.) where "E01" indicates the
+        first encounter with Europa and "G02" indicates the second
+        encounter with Ganymede and so on. There is one more additional
+        special value of "XXX" representing data collected during cruise
+        up until the first encounter. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="3"/>
+     <xs:maxLength value="3"/>
 	   </xs:restriction>
   </xs:simpleType>
 
@@ -544,9 +567,12 @@
   <xs:complexType name="orbit_number">
     <xs:annotation>
       <xs:documentation>The orbit_number attribute identifies the number
-        of the orbital revolution of the spacecraft around a target
-        body. This value can optionally be set to 0 for cruise images or
-        not set at all.</xs:documentation>
+        of the orbital revolution of the spacecraft around Jupiter.
+        Prior to JOI (i.e., from launch through cruise including gravity
+        assists), the orbit value will be 0. After JOI, starting with
+        the first apojove, the value will increase by 1 with each
+        revolution around Jupiter incrementing at each subsequent
+        apojove. </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="pds:ASCII_Integer">
