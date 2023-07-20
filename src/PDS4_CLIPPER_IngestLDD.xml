@@ -15,11 +15,11 @@
         The Clipper dictionary contains classes that describe aspects of the 
         Europa Clipper Orbiter mission and related instruments.
 
-        Clipper version 1.0.0.0 (2023-07-19)
+        Clipper version 1.0.0.0 (2023-07-20)
         Trent Hare, Initial version, to provide initial generic mission attributes
     </comment>
     
-    <last_modification_date_time>2023-07-19T16:07Z</last_modification_date_time>
+    <last_modification_date_time>2023-07-20T06:33Z</last_modification_date_time>
  
 <!-- Begin attribute definitions -->
     
@@ -27,46 +27,50 @@
  
     <DD_Attribute>
         <name>mission_phase_name</name>
-        <version_id>0.1</version_id>
+        <version_id>1.0</version_id>
         <local_identifier>clipper.mission_phase_name</local_identifier>
         <nillable_flag>true</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>The mission_phase_name identifies a time period within the mission.</definition>
-        <!-- just an initial guess at phases -->
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Preserved</value_data_type>
             <DD_Permissible_Value>
-                <value>Inner Cruise 1</value>
-                <value_meaning>TBD</value_meaning>
+                <value>Launch</value>
+                <value_meaning>This phase includes include launch, initial acquisition, 
+                  solar array deployment, establishment of power-positive attitude, and 
+                  re-establishing telemetry.
+                </value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>Quiet Cruise</value>
-                <value_meaning>TBD</value_meaning>
+                <value>Interplanetary Cruise</value>
+                <value_meaning>This phase starts one day after launch and includes two 
+                  sub-phases: Inner Cruise and Outer Cruise. Activity includes flight 
+                  system characterization and navigating to the Mars and Earth gravity 
+                  assists along with periodic maintenance, calibrations, and navigation 
+                  activities.
+                </value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>Outer Cruise</value>
-                <value_meaning>TBD</value_meaning>
+                <value>Arrival</value>
+                <value_meaning>This phase starts three months prior to JOI and includes 
+                  two sub-phases: Jupiter Approach and Jupiter Orbit Capture. Activities 
+                  include navigation maneuvers to achieve Jupiter orbit capture.
+                </value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>Jupiter Approach</value>
-                <value_meaning>TBD</value_meaning>
+                <value>Tour</value>
+                <value_meaning>This phase starts eight hours after perijove and includes four 
+                  sub-phases: Transition to Europa Campaign 1, Europa Campaign 1, Transition 
+                  to Europa Campaign 2 and Europa Campaign 2. Activities include positioning for 
+                  and execution of close flybys of Europa, Ganymede and Callisto.
+                </value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>Capture Orbit</value>
-                <value_meaning>TBD</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>Period Reduction Maneuver</value>
-                <value_meaning>TBD</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>Orbits 1-2</value>
-                <value_meaning>TBD</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>Science Orbits</value>
-                <value_meaning>TBD</value_meaning>
+                <value>Disposal</value>
+                <value_meaning>This phase starts 30 days after the last targeted closest approach of 
+                  Europa. Activities include preparation for impact with Jupiter.
+                </value_meaning>
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
@@ -150,7 +154,7 @@
     </DD_Attribute>        
 
     <DD_Attribute>
-        <name>encounter_idencounter_id</name>
+        <name>encounter_id</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.encounter_id</local_identifier>
         <nillable_flag>false</nillable_flag>
