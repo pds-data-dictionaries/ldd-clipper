@@ -178,7 +178,6 @@
             <maximum_characters>3</maximum_characters>
         </DD_Value_Domain>
     </DD_Attribute>
-    
 
     <DD_Attribute>
         <name>producer_institution_name</name>
