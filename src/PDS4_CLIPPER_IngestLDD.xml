@@ -1693,7 +1693,7 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.SUDA_Event</identifier_reference>
-            <reference_type>attribute_of</reference_type>
+            <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
