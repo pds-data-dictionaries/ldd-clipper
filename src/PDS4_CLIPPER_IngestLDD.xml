@@ -22,7 +22,7 @@
         T.Hare, updates for SUDA
     </comment>
     
-    <last_modification_date_time>2023-10-11T18:00Z</last_modification_date_time>
+    <last_modification_date_time>2023-10-12T45:00Z</last_modification_date_time>
  
 <!-- Begin attribute definitions -->
     
@@ -179,6 +179,28 @@
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
             <minimum_characters>3</minimum_characters>
             <maximum_characters>3</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>aid</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.aid</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>A hexadecimal representation of the Accountability Identifier (AID) which 
+            serves as a globally unique identifier across all instruments and mission phases for 
+            an observational activity onboard the spacecraft. Data tagged with a given AID is 
+            collected into an Accountable Data Product (ADP) on the ground and will result in 
+            one or more associated PDS data products in the archive. The AID is a 32-bit 
+            unsigned integer which contains three fields: 
+            Instrument ID (4-bits), 
+            Orbit Number (9-bits) and 
+            Data Acquisition ID (19-bits). 
+            The hexadecimal string value is prefixed with “0x”.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -963,20 +985,6 @@
     <!-- begin SUDA attributes -->
 
     <DD_Attribute>
-        <name>aid</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.aid</local_identifier>
-        <nillable_flag>true</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Accountability ID which defines unique tags sets for SUDA data.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <minimum_characters>1</minimum_characters>
-            <maximum_characters>255</maximum_characters>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    <DD_Attribute>
         <name>event_count</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.event_count</local_identifier>
@@ -1248,6 +1256,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.encounter_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.aid</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -1667,12 +1681,6 @@
         <definition>The class contain all the instrument specific attributes for the
                     SUDA instrument.
         </definition>
-        <DD_Association>
-            <identifier_reference>clipper.aid</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.event_count</identifier_reference>
             <reference_type>attribute_of</reference_type>
