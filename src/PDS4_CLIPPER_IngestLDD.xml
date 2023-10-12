@@ -22,7 +22,7 @@
         T.Hare, updates for SUDA
     </comment>
     
-    <last_modification_date_time>2023-10-12T45:00Z</last_modification_date_time>
+    <last_modification_date_time>2023-10-12T08:45:00Z</last_modification_date_time>
  
 <!-- Begin attribute definitions -->
     
@@ -1236,7 +1236,7 @@
     <DD_Class>
         <name>Observation_Information</name>
         <version_id>1.0</version_id>
-        <local_identifier>Observation_Information</local_identifier>
+        <local_identifier>clipper.Observation_Information</local_identifier>
         <submitter_name>IMG</submitter_name>
         <definition>The Observation_Information class provides information about a science observation.</definition>
         <abstract_flag>false</abstract_flag>
