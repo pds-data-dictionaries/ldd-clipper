@@ -1,13 +1,15 @@
 
->>  INFO LDDTOOL Version: 14.2.4
+>>  INFO LDDTOOL Version: 14.3.0
 >>  INFO IM Version Id: 1.18.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.24
->>  INFO Date: Thu Jul 20 13:48:02 UTC 2023
->>  INFO PARENT_DIR: /tmp/lddtool-14.2.4
->>  INFO SCRIPT_DIR: /tmp/lddtool-14.2.4/bin
->>  INFO LIB_DIR: /tmp/lddtool-14.2.4/lib
+>>  INFO Date: Thu Oct 12 00:56:17 UTC 2023
+>>  INFO PARENT_DIR: /tmp/lddtool-14.3.0
+>>  INFO SCRIPT_DIR: /tmp/lddtool-14.3.0/bin
+>>  INFO LIB_DIR: /tmp/lddtool-14.3.0/lib
 
+>>> ERROR Class:0001_NASA_PDS_1.clipper.SUDA_Parameters  Association:clipper.SUDA_Event  Attribute: clipper.SUDA_Event - Missing Attribute
+>>> ERROR Association: clipper.SUDA_Event - Could not find referenced attribute - Reference Type: attribute_of
 >>> INFO Init:  - Config.Properties Namespace Id Found:clipper
 >>> INFO Init:  - Config.Properties Namespace Id Using:clipper
 >>> INFO Init:  - LDD Dictionary_Type is Mission
@@ -19,6 +21,26 @@
 >>> INFO Attribute: <command_sequence_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <image_id> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <uncorrected_sclk_start_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <aid> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <event_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <epoch> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <start_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <end_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <event_id> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <event_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <category> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <tof_peak_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <tof_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <tof_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qv_max_amplitude> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qv_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qv_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qt_max_amplitude> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qt_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qt_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qi_max_amplitude> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qi_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qi_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <spacecraft_clock_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <spacecraft_clock_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> INFO Attribute: <spacecraft_clock_stop_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
@@ -37,13 +59,20 @@
 >>> INFO Attribute: <spatial_summing> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <aid> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <aid> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <event_count> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <start_time> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <category> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> WARNING Attribute: <command_sequence_number> - This local attribute was not used in an Association.
+>>> WARNING Attribute: <epoch> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <flight_software_version_id> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <image_id> - This local attribute was not used in an Association.
+>>> WARNING Attribute: <tof_var> - This local attribute was not used in an Association.
 
  -- LDDTool Execution Summary --
-     3 warning(s)
-     0 error(s)
+     5 warning(s)
+     2 error(s)
      0 fatal error(s)
 
 Input:
@@ -61,6 +90,6 @@ Output:
      - ./PDS4_CLIPPER_1I00_1000.xsd
      - ./PDS4_CLIPPER_1I00_1000.sch
      - ./PDS4_CLIPPER_1I00_1000.xml
-     - ./PDS4_CLIPPER_1I00_1000.JSON
+     - ./export/JSON/PDS4_PDS_1I00.JSON
 
->>  INFO Exit(0)
+>>  INFO Exit(1)
