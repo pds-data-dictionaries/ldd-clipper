@@ -882,8 +882,7 @@
         <local_identifier>clipper.line_exposure_duration</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>
-            For NAC, LINE_EXPOSURE_DURATION can have values between 337.6 and 
+        <definition>For NAC, LINE_EXPOSURE_DURATION can have values between 337.6 and 
             35,281.6 microseconds, in 128/15 microsecond increments
             (LINE_EXPOSURE_DURATION = [LINE_EXPOSURE_CODE * 128/15] + 337.6)
         </definition>
@@ -1015,7 +1014,7 @@
         <local_identifier>clipper.start_time</local_identifier>
         <nillable_flag>true</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>milliseconds of the first event within this AID (time in milliseconds
+        <definition>Milliseconds of the first event within this AID (time in milliseconds
                     since epoch).
         </definition>
         <DD_Value_Domain>
@@ -1030,7 +1029,7 @@
         <local_identifier>clipper.end_time</local_identifier>
         <nillable_flag>true</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>milliseconds of the last event within this AID (time in milliseconds
+        <definition>Milliseconds of the last event within this AID (time in milliseconds
             since epoch).
         </definition>
         <DD_Value_Domain>
@@ -1086,7 +1085,7 @@
         <definition>Total number of TOF peaks found.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
@@ -1098,7 +1097,7 @@
         <definition>Selected TOF waveform mean.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
@@ -1110,7 +1109,7 @@
         <definition>Signal to Noise ratio squared of selected TOF waveform.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -1123,7 +1122,7 @@
         <definition>Maximum amplitude (raw value) for velocity waveform (QV).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
             <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
         </DD_Value_Domain>
     </DD_Attribute>
@@ -1136,7 +1135,7 @@
         <definition>Mean of selected velocity waveform data (QV).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
@@ -1148,7 +1147,7 @@
         <definition>Signal to Noise ratio squared for velocity waveform (QV).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -1161,7 +1160,7 @@
         <definition>Maximum amplitude (raw value) for target waveform (QT).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
             <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
         </DD_Value_Domain>
     </DD_Attribute>
@@ -1174,7 +1173,7 @@
         <definition>Mean of selected target data (QT).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
@@ -1186,7 +1185,7 @@
         <definition>Signal to Noise ratio squared for target (QT).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -1199,7 +1198,7 @@
         <definition>Maximum amplitude (raw value) for ion waveform (QI).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
             <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
         </DD_Value_Domain>
     </DD_Attribute>
@@ -1212,7 +1211,7 @@
         <definition>Mean of selected ion data (QI).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
@@ -1224,7 +1223,7 @@
         <definition>Signal to Noise ratio squared for ion data (QI).</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <!-- End of SUDA attribute definitions -->
@@ -1362,7 +1361,7 @@
         <version_id>1.0</version_id>
         <local_identifier>clipper.EIS_Parameters</local_identifier>
         <submitter_name>IMG</submitter_name>
-        <definition>The class contain all the instrument specific attributes for the EIS WAC and NAC.</definition>
+        <definition>The class contains all the instrument specific attributes for the EIS WAC and NAC.</definition>
 
         <DD_Association>
             <identifier_reference>clipper.upload_id</identifier_reference>
@@ -1593,7 +1592,7 @@
         <version_id>1.0</version_id>
         <local_identifier>clipper.ETHEMIS_Parameters</local_identifier>
         <submitter_name>IMG</submitter_name>
-        <definition>The class contain all the instrument specific attributes for the E-THEMIS instrument.</definition>
+        <definition>The class contains all the instrument specific attributes for the E-THEMIS instrument.</definition>
         
         <DD_Association>
             <identifier_reference>clipper.upload_id</identifier_reference>
@@ -1678,11 +1677,17 @@
         <version_id>1.0</version_id>
         <local_identifier>clipper.SUDA_Parameters</local_identifier>
         <submitter_name>IMG</submitter_name>
-        <definition>The class contain all the instrument specific attributes for the
+        <definition>The class contains all the instrument specific attributes for the
                     SUDA instrument.
         </definition>
         <DD_Association>
             <identifier_reference>clipper.event_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.epoch</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -1714,7 +1719,7 @@
         <version_id>1.0</version_id>
         <local_identifier>clipper.SUDA_Event</local_identifier>
         <submitter_name>IMG</submitter_name>
-        <definition>The class contain all the events for SUDA instrument.
+        <definition>The class contains all the events for SUDA instrument.
         </definition>
         <DD_Association>
             <identifier_reference>clipper.event_id</identifier_reference>
@@ -1748,6 +1753,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.tof_mean</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.tof_var</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
