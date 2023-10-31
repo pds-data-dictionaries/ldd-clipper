@@ -1264,7 +1264,7 @@
             <identifier_reference>clipper.aid</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.product_type</identifier_reference>
@@ -1733,6 +1733,12 @@
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.aid</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.tof_peak_count</identifier_reference>
