@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Fri Nov 03 16:01:41 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.17.0.0 - System Build 12.0 -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.17.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.0.0.0 - clipper: - Clipper                                              -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/clipper/v1"
+    xmlns:clipper="http://pds.nasa.gov/pds4/mission/clipper/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1H00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        The Clipper dictionary contains classes that describe aspects of the 
+        Europa Clipper Orbiter mission and related instruments.
+
+        Clipper version 1.0.0.0 (2023-07-20)
+        Trent Hare, Initial version, to provide initial generic mission attributes
+
+        (2023-10-11)
+        T.Hare, updates for SUDA
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Observation_Information" type="clipper:Observation_Information"> </xs:element>
+
+  <xs:complexType name="EIS_Parameters">
+    <xs:annotation>
+      <xs:documentation>The class contains all the instrument specific
+        attributes for the EIS WAC and NAC.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="upload_id" type="clipper:upload_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="begin_temperature_scs" type="clipper:begin_temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="middle_temperature_scs" type="clipper:middle_temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_temperature_scs" type="clipper:end_temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="begin_temperature_fpa" type="clipper:begin_temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="middle_temperature_fpa" type="clipper:middle_temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_temperature_fpa" type="clipper:end_temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="begin_temperature_scs_raw" type="clipper:begin_temperature_scs_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="middle_temperature_scs_raw" type="clipper:middle_temperature_scs_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_temperature_scs_raw" type="clipper:end_temperature_scs_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="begin_temperature_fpa_raw" type="clipper:begin_temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="middle_temperature_fpa_raw" type="clipper:middle_temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_temperature_fpa_raw" type="clipper:end_temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="preroll_time" type="clipper:preroll_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_preroll_count" type="clipper:spacecraft_clock_preroll_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_scs" type="clipper:temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_fpa" type="clipper:temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_fpga" type="clipper:temperature_fpga" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_telescope" type="clipper:temperature_telescope" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_scs_raw" type="clipper:temperature_scs_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_fpa_raw" type="clipper:temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_fpga_raw" type="clipper:temperature_fpga_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_telescope_raw" type="clipper:temperature_telescope_raw" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="exposure_code" type="clipper:exposure_code" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="interframe_delay" type="clipper:interframe_delay" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_mode_id" type="clipper:instrument_mode_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="lookup_table_type" type="clipper:lookup_table_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="line_exposure_duration" type="clipper:line_exposure_duration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="line_exposure_code" type="clipper:line_exposure_code" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dac_reset_level" type="clipper:dac_reset_level" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="line_code" type="clipper:line_code" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="compression_flag" type="clipper:compression_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mode" type="clipper:mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nframes" type="clipper:nframes" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="interframe_gap_code" type="clipper:interframe_gap_code" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="clipper:instrument_mode_id = ('BW', 'COLOR', 'UV', 'VIS')"/> -->
+    <!-- <xs:assert test="clipper:lookup_table_type = ('STORED')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="ETHEMIS_Parameters">
+    <xs:annotation>
+      <xs:documentation>The class contains all the instrument specific
+        attributes for the E-THEMIS instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="upload_id" type="clipper:upload_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="maximum_brightness_temperature" type="clipper:maximum_brightness_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="minimum_brightness_temperature" type="clipper:minimum_brightness_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spatial_summing" type="clipper:spatial_summing" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="time_delay_integration_flag" type="clipper:time_delay_integration_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="uncorrected_sclk_start_count" nillable="true" type="clipper:uncorrected_sclk_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="interframe_delay" type="clipper:interframe_delay" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="instrument_mode_id" type="clipper:instrument_mode_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="line_exposure_duration" type="clipper:line_exposure_duration" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="line_exposure_code" type="clipper:line_exposure_code" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="compression_flag" type="clipper:compression_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="interframe_gap_code" type="clipper:interframe_gap_code" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="clipper:time_delay_integration_flag = ('DISABLED', 'ENABLED')"/> -->
+    <!-- <xs:assert test="clipper:instrument_mode_id = ('BW', 'COLOR', 'UV', 'VIS')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Information">
+    <xs:annotation>
+      <xs:documentation>The Observation_Information class provides
+        information about a science observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mission_phase_name" nillable="true" type="clipper:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="orbit_number" nillable="true" type="clipper:orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="encounter_id" type="clipper:encounter_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="aid" nillable="true" type="clipper:aid" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="product_type" type="clipper:product_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="product_version_id" type="clipper:product_version_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="producer_institution_name" type="clipper:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="release_number" nillable="true" type="clipper:release_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start_count" nillable="true" type="clipper:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop_count" nillable="true" type="clipper:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_count_partition" type="clipper:spacecraft_clock_count_partition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rationale_desc" type="clipper:rationale_desc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_quality_id" type="clipper:data_quality_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_quality_desc" type="clipper:data_quality_desc" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="EIS_Parameters" type="clipper:EIS_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="ETHEMIS_Parameters" type="clipper:ETHEMIS_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SUDA_Parameters" type="clipper:SUDA_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="clipper:mission_phase_name = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Tour')"/> -->
+    <!-- <xs:assert test="clipper:product_type = ('Calibrated', 'Derived', 'Partially Processed', 'Raw')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="SUDA_Event">
+    <xs:annotation>
+      <xs:documentation>The class contains all the events for SUDA
+        instrument. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="event_id" nillable="true" type="clipper:event_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="event_time" nillable="true" type="clipper:event_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="category" nillable="true" type="clipper:category" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="aid" nillable="true" type="clipper:aid" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="tof_peak_count" nillable="true" type="clipper:tof_peak_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="tof_mean" nillable="true" type="clipper:tof_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="tof_var" nillable="true" type="clipper:tof_var" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qv_max_amplitude" nillable="true" type="clipper:qv_max_amplitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qv_mean" nillable="true" type="clipper:qv_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qv_var" nillable="true" type="clipper:qv_var" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qt_max_amplitude" nillable="true" type="clipper:qt_max_amplitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qt_mean" nillable="true" type="clipper:qt_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qt_var" nillable="true" type="clipper:qt_var" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qi_max_amplitude" nillable="true" type="clipper:qi_max_amplitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qi_mean" nillable="true" type="clipper:qi_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qi_var" nillable="true" type="clipper:qi_var" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SUDA_Parameters">
+    <xs:annotation>
+      <xs:documentation>The class contains all the instrument specific
+        attributes for the SUDA instrument. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="event_count" nillable="true" type="clipper:event_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="epoch" nillable="true" type="clipper:epoch" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_time" nillable="true" type="clipper:start_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_time" nillable="true" type="clipper:end_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SUDA_Event" type="clipper:SUDA_Event" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:complexType name="aid">
+    <xs:annotation>
+      <xs:documentation>A hexadecimal representation of the
+        Accountability Identifier (AID) which serves as a globally
+        unique identifier across all instruments and mission phases for
+        an observational activity onboard the spacecraft. Data tagged
+        with a given AID is collected into an Accountable Data Product
+        (ADP) on the ground and will result in one or more associated
+        PDS data products in the archive. The AID is a 32-bit unsigned
+        integer which contains three fields: Instrument ID (4-bits),
+        Orbit Number (9-bits) and Data Acquisition ID (19-bits). The
+        hexadecimal string value is prefixed with
+        “0x”.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="begin_temperature_fpa_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="begin_temperature_fpa">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:begin_temperature_fpa_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="begin_temperature_fpa_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="begin_temperature_scs_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="begin_temperature_scs">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:begin_temperature_scs_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="begin_temperature_scs_raw_WO_Units">
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="begin_temperature_scs_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:begin_temperature_scs_raw_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="category">
+    <xs:annotation>
+      <xs:documentation>Category determined by Flight Software
+        Processing.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="compression_flag">
+    <xs:annotation>
+      <xs:documentation>Indicates if lossless compression was commanded
+        (0=no, 1=yes)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dac_reset_level">
+    <xs:annotation>
+      <xs:documentation>Records the commanded DAC reset level for the
+        NAC</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_quality_desc">
+    <xs:annotation>
+      <xs:documentation>The data_quality_desc attribute describes the
+        data qualities associated with a data_quality_id attribute.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Text_Collapsed">
+     <xs:minLength value="1"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_quality_id">
+    <xs:annotation>
+      <xs:documentation>The data_quality_id attribute provides a numeric
+        key which identifies the quality of data available for a
+        particular time period. The data_quality_id scheme is unique to
+        a given instrument and is described by the associated
+        data_quality_desc attribute. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="encounter_id">
+    <xs:annotation>
+      <xs:documentation>The Playback and Flyby periods together comprise
+        an Encounter, defined as the period of time during the Tour
+        beginning two days before the targeted closest approach of a
+        Jovian moon, and ending two days before the next targeted
+        closest approach of a Jovian moon. While most Jupiter orbits
+        include a targeted flyby, there are some phasing orbits without
+        a targeted flyby; in these cases, an encounter will span more
+        than one orbit. Valid values consist of a three-character
+        identifier (e.g., EO1, G02, etc.) where "E01" indicates the
+        first encounter with Europa and "G02" indicates the second
+        encounter with Ganymede and so on. There is one more additional
+        special value of "XXX" representing data collected during cruise
+        up until the first encounter. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="3"/>
+     <xs:maxLength value="3"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="end_temperature_fpa_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="end_temperature_fpa">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:end_temperature_fpa_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="end_temperature_fpa_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="end_temperature_scs_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="end_temperature_scs">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:end_temperature_scs_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="end_temperature_scs_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="end_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="end_time">
+    <xs:annotation>
+      <xs:documentation>Milliseconds of the last event within this AID
+        (time in milliseconds since epoch). </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:end_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="epoch">
+    <xs:annotation>
+      <xs:documentation>Epoch defining the zero point of relative
+        times.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="event_count">
+    <xs:annotation>
+      <xs:documentation>Number of events contained within a given
+        AID.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="event_id">
+    <xs:annotation>
+      <xs:documentation>Event-specific event identifier from the FPGA
+        Header.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="event_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="event_time">
+    <xs:annotation>
+      <xs:documentation>FPGA event time (time of event trigger in
+        milliseconds since epoch). </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:event_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="exposure_code">
+    <xs:annotation>
+      <xs:documentation>Records the commanded exposure code for a WAC
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="instrument_mode_id">
+    <xs:annotation>
+      <xs:documentation>Records the commanded WAC mode: BW, COLOR, VIS
+        or UV.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="interframe_delay_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="interframe_delay">
+    <xs:annotation>
+      <xs:documentation>Set to the value of the interframe delay between
+        WAC framelets. Keyword can have values between 25/64 and 280/64
+        seconds, in 1/64 seconds increments.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:interframe_delay_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="interframe_gap_code">
+    <xs:annotation>
+      <xs:documentation>Records the commanded interframe gap code for a
+        WAC observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="line_code">
+    <xs:annotation>
+      <xs:documentation>Records the commanded value for the number of
+        NAC lines to acquire, in 1024 increments. (LINES = LINES_CODE *
+        1024)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="line_exposure_code">
+    <xs:annotation>
+      <xs:documentation>Index range from 0 to 4095 each corresponding to
+        one LINE_EXPOSURE_DURATION increment.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="4095"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="line_exposure_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="line_exposure_duration">
+    <xs:annotation>
+      <xs:documentation>For NAC, LINE_EXPOSURE_DURATION can have values
+        between 337.6 and 35,281.6 microseconds, in 128/15 microsecond
+        increments (LINE_EXPOSURE_DURATION = [LINE_EXPOSURE_CODE *
+        128/15] + 337.6) </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:line_exposure_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="lookup_table_type">
+    <xs:annotation>
+<xs:documentation>Always set to STORED.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="maximum_brightness_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="maximum_brightness_temperature">
+    <xs:annotation>
+      <xs:documentation>Maximum brightness temperature value measured
+        within the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:maximum_brightness_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="middle_temperature_fpa_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="middle_temperature_fpa">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:middle_temperature_fpa_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="middle_temperature_fpa_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="middle_temperature_scs_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="middle_temperature_scs">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:middle_temperature_scs_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="middle_temperature_scs_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="minimum_brightness_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="minimum_brightness_temperature">
+    <xs:annotation>
+      <xs:documentation>Minimum brightness temperature value measured
+        within the image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:minimum_brightness_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name identifies a time period
+        within the mission.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Preserved">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mode">
+    <xs:annotation>
+      <xs:documentation>Set to the mode value as commanded for both NAC
+        and WAC observations.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nframes">
+    <xs:annotation>
+      <xs:documentation>Records the commanded number of frames for a WAC
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="orbit_number">
+    <xs:annotation>
+      <xs:documentation>The orbit_number attribute identifies the number
+        of the orbital revolution of the spacecraft around Jupiter.
+        Prior to JOI (i.e., from launch through cruise including gravity
+        assists), the orbit value will be 0. After JOI, starting with
+        the first apojove, the value will increase by 1 with each
+        revolution around Jupiter incrementing at each subsequent
+        apojove. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="preroll_time">
+    <xs:annotation>
+      <xs:documentation>The UTC time and date at the start of the image
+        acquisition command, corresponding to the acquisition of 1024
+        lines at the given exposure prior to the actual image
+        acquisition. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSS(Z)" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="producer_institution_name">
+    <xs:annotation>
+      <xs:documentation>The producer_institution_name attribute
+        identifies a university, research center, NASA center, or other
+        institution associated with the production of a data product.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type">
+    <xs:annotation>
+      <xs:documentation>The product_type attribute indicates the
+        processing level of an individual data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_version_id">
+    <xs:annotation>
+      <xs:documentation>The product_version_id attribute identifies the
+        version of an individual data product. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="qi_max_amplitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="qi_max_amplitude">
+    <xs:annotation>
+      <xs:documentation>Maximum amplitude (raw value) for ion waveform
+        (QI).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:qi_max_amplitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qi_mean">
+    <xs:annotation>
+      <xs:documentation>Mean of selected ion data
+        (QI).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qi_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared for ion data
+        (QI).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="qt_max_amplitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="qt_max_amplitude">
+    <xs:annotation>
+      <xs:documentation>Maximum amplitude (raw value) for target
+        waveform (QT).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:qt_max_amplitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qt_mean">
+    <xs:annotation>
+      <xs:documentation>Mean of selected target data
+        (QT).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qt_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared for target
+        (QT).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="qv_max_amplitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="qv_max_amplitude">
+    <xs:annotation>
+      <xs:documentation>Maximum amplitude (raw value) for velocity
+        waveform (QV).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:qv_max_amplitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qv_mean">
+    <xs:annotation>
+      <xs:documentation>Mean of selected velocity waveform data
+        (QV).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qv_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared for velocity
+        waveform (QV).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="rationale_desc">
+    <xs:annotation>
+      <xs:documentation>The rationale_desc attribute describes the
+        rationale for performing a particular
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="release_number">
+    <xs:annotation>
+      <xs:documentation>Release_number is the number of a scheduled
+        release of data from PDS. The first data release would be
+        Release 1. The release_number for a given product is always the
+        first release in which it appears, and does not change if the
+        product is revised later.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_clock_count_partition">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_count_partition attribute
+        indicates the clock partition active for the
+        spacecraft_clock_start_count and spacecraft_clock_stop_count
+        attributes. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_preroll_count">
+    <xs:annotation>
+      <xs:documentation>Set to the sclk string for the start of an
+        observation preroll acquisition.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{5})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spacecraft_clock_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_start_count attribute
+        provides the value of the spacecraft clock at the actual start
+        of image acquisition. There may be small inconsistencies with
+        start_date_time due to varying correlation between UTC and the
+        spacecraft clock. For purposes of data analysis the spacecraft
+        clock value should be used. The format of this field is
+        compatible with the NAIF Toolkit software where s = seconds
+        converted from the clock's coarse counter and m = seconds
+        converted from the clock's fine counter.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spacecraft_clock_stop_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop_count attribute
+        provides the value of the spacecraft clock at the actual end of
+        image acquisition. There may be small inconsistencies with
+        stop_date_time due to varying correlation between UTC and the
+        spacecraft clock. For purposes of data analysis the spacecraft
+        clock value should be used. The format of this field is
+        compatible with the NAIF Toolkit software where s = seconds
+        converted from the clock's coarse counter and m = seconds
+        converted from the clock's fine counter.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spatial_summing">
+    <xs:annotation>
+      <xs:documentation>Onboard spatial average of NxN set of pixels,
+        where N is the value of the keyword. SPATIAL_SUMMING = 1 implies
+        that no spatial averaging has been applied to the image.
+        .</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="start_time">
+    <xs:annotation>
+      <xs:documentation>Milliseconds of the first event within this AID
+        (time in milliseconds since epoch). </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:start_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="temperature_fpa_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="temperature_fpa">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:temperature_fpa_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="temperature_fpa_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="temperature_fpga_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="temperature_fpga">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:temperature_fpga_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="temperature_fpga_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="temperature_scs_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="temperature_scs">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:temperature_scs_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="temperature_scs_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="temperature_telescope_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="temperature_telescope">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:temperature_telescope_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="temperature_telescope_raw">
+    <xs:annotation>
+<xs:documentation>_TBD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="time_delay_integration_flag">
+    <xs:annotation>
+      <xs:documentation>Status of onboard algorithm which applies a
+        temporal average of successive lines in an IR image; when
+        enabled, THEMIS TDI averages 16 detector rows to equal one line
+        in an IR image. “ENABLED” or “DISABLED”.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tof_mean">
+    <xs:annotation>
+<xs:documentation>Selected TOF waveform mean.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="tof_peak_count">
+    <xs:annotation>
+      <xs:documentation>Total number of TOF peaks
+        found.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="tof_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared of selected TOF
+        waveform.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="uncorrected_sclk_start_count">
+    <xs:annotation>
+      <xs:documentation>The spacecraft clock value (in seconds) when the
+        instrument was commanded to acquire an observation. This can
+        differ from the spacecraft_clock_start_count by as much as 4
+        seconds, depending on which bands are acquired in the
+        image.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="upload_id">
+    <xs:annotation>
+      <xs:documentation>The upload_id attribute describes a spacecraft
+        command set that is associated with the given data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
