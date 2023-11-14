@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Thu Jan 19 21:10:47 UTC 2023 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Tue Nov 14 22:20:54 UTC 2023 -->
   <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -127,7 +127,7 @@
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test="clipper:mission_phase_name = ('Capture Orbit', 'Inner Cruise 1', 'Jupiter Approach', 'Orbits 1-2', 'Outer Cruise', 'Period Reduction Maneuver', 'Quiet Cruise', 'Science Orbits')"/> -->
-    <!-- <xs:assert test="clipper:product_type = ('CDR', 'EDR', 'RDR')"/> -->
+    <!-- <xs:assert test="clipper:product_type = ('Calibrated', 'Derived', 'Partially Processed', 'Raw')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
@@ -582,7 +582,9 @@
 
   <xs:simpleType name="product_type">
     <xs:annotation>
-<xs:documentation>_TBD</xs:documentation>
+      <xs:documentation>The product_type attribute indicates the
+        processing level of an individual data
+        product.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>

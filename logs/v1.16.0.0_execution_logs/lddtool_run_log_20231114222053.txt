@@ -1,12 +1,12 @@
 
->>  INFO LDDTOOL Version: 14.1.2
->>  INFO IM Version Id: 1.15.0.0
+>>  INFO LDDTOOL Version: 14.3.0
+>>  INFO IM Version Id: 1.16.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.21
->>  INFO Date: Thu Jan 19 21:10:54 UTC 2023
->>  INFO PARENT_DIR: /tmp/lddtool-14.1.2
->>  INFO SCRIPT_DIR: /tmp/lddtool-14.1.2/bin
->>  INFO LIB_DIR: /tmp/lddtool-14.1.2/lib
+>>  INFO IM Label Version Id: 1.22
+>>  INFO Date: Tue Nov 14 22:20:54 UTC 2023
+>>  INFO PARENT_DIR: /tmp/lddtool-14.3.0
+>>  INFO SCRIPT_DIR: /tmp/lddtool-14.3.0/bin
+>>  INFO LIB_DIR: /tmp/lddtool-14.3.0/lib
 
 >>> INFO Init:  - Config.Properties Namespace Id Found:clipper
 >>> INFO Init:  - Config.Properties Namespace Id Using:clipper
@@ -45,7 +45,7 @@
 
 Input:
 
-     - IM Version: 1F00
+     - IM Version: 1G00
      - PDS4 Flag: true
      - LDD Flag: true
      - IM Version: true
@@ -55,9 +55,9 @@ Input:
 
 Output:
 
-     - ./PDS4_CLIPPER_1F00_1000.xsd
-     - ./PDS4_CLIPPER_1F00_1000.sch
-     - ./PDS4_CLIPPER_1F00_1000.xml
-     - ./PDS4_CLIPPER_1F00_1000.JSON
+     - ./PDS4_CLIPPER_1G00_1000.xsd
+     - ./PDS4_CLIPPER_1G00_1000.sch
+     - ./PDS4_CLIPPER_1G00_1000.xml
+     - ./export/JSON/PDS4_PDS_1G00.JSON
 
 >>  INFO Exit(0)
