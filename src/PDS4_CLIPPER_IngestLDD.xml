@@ -1005,7 +1005,7 @@
         <definition>Epoch defining the zero point of relative times.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <value_data_type>ASCII_Date_Time_DOY_UTC</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
@@ -1014,8 +1014,7 @@
         <local_identifier>clipper.start_time</local_identifier>
         <nillable_flag>true</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>Milliseconds of the first event within this AID (time in milliseconds
-                    since epoch).
+        <definition>Milliseconds of the first event within this AID (time in milliseconds since epoch).
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -1029,8 +1028,7 @@
         <local_identifier>clipper.end_time</local_identifier>
         <nillable_flag>true</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>Milliseconds of the last event within this AID (time in milliseconds
-            since epoch).
+        <definition>Milliseconds of the last event within this AID (time in milliseconds since epoch).
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -1085,7 +1083,7 @@
         <definition>Total number of TOF peaks found.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
+            <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
