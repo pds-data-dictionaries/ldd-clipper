@@ -18,11 +18,11 @@
         Clipper version 1.0.0.0 (2023-07-20)
         Trent Hare, Initial version, to provide initial generic mission attributes
 
-        (2023-10-11)
+        (2023-15-11)
         T.Hare, updates for SUDA
     </comment>
     
-    <last_modification_date_time>2023-10-12T08:45:00Z</last_modification_date_time>
+    <last_modification_date_time>2023-11-15T06:45:00Z</last_modification_date_time>
  
 <!-- Begin attribute definitions -->
     
@@ -1002,10 +1002,10 @@
         <local_identifier>clipper.epoch</local_identifier>
         <nillable_flag>true</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>Epoch defining the zero point of relative times.</definition>
+        <definition>Epoch defining the zero point of relative times in year month day UTC. For example: "YYYY-MM-DDThh:mm:ss.ssssssZ"</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Date_Time_DOY_UTC</value_data_type>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute>
