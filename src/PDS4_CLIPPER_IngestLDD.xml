@@ -180,6 +180,28 @@
     </DD_Attribute>
 
     <DD_Attribute>
+        <name>aid</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.aid</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>A hexadecimal representation of the Accountability Identifier (AID) which 
+            serves as a globally unique identifier across all instruments and mission phases for 
+            an observational activity onboard the spacecraft. Data tagged with a given AID is 
+            collected into an Accountable Data Product (ADP) on the ground and will result in 
+            one or more associated PDS data products in the archive. The AID is a 32-bit 
+            unsigned integer which contains three fields: 
+            Instrument ID (4-bits), 
+            Orbit Number (9-bits) and 
+            Data Acquisition ID (19-bits). 
+            The hexadecimal string value is prefixed with “0x”.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
         <name>producer_institution_name</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.producer_institution_name</local_identifier>
@@ -636,11 +658,19 @@
         <version_id>1.0</version_id>
         <local_identifier>clipper.mode</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Set to the mode value as commanded for both NAC and WAC observations.</definition>
+        <submitter_name>APL</submitter_name>
+        <definition>Indicates whether the EIS detector was commanded to take images in framing or pushbroom mode.</definition>
         <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>framing</value>
+                <value_meaning>EIS commanded to take images in framing mode.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>pushbroom</value>
+                <value_meaning>EIS commanded to take images in pushbroom mode.</value_meaning>
+            </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -741,7 +771,7 @@
         <local_identifier>clipper.nframes</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded number of frames for a WAC observation.</definition>
+        <definition>Records the commanded number of frames for an EIS observation.</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
@@ -989,6 +1019,12 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
+            <identifier_reference>clipper.aid</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
             <identifier_reference>clipper.product_type</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -1080,8 +1116,16 @@
         <submitter_name>IMG</submitter_name>
         <definition>The class contain all the instrument specific attributes for the EIS WAC and NAC.</definition>
 
+        <!-- EIS common attributes -->
         <DD_Association>
             <identifier_reference>clipper.upload_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+
+        <DD_Association>
+            <identifier_reference>clipper.mode</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -1286,7 +1330,7 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
-        <DD_Association> <!-- WAC -->
+        <DD_Association> <!-- WAC and NAC-->
             <identifier_reference>clipper.nframes</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
