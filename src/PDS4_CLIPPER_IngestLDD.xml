@@ -1576,10 +1576,8 @@
         <local_identifier>clipper.Detector_Region</local_identifier>
         <submitter_name>IMG</submitter_name>
         <definition>The class contains the start/end readout rows, start/end readout columns, and row step size
-         describing the region of the detector that is contained in an EIS image. This is applicable to 
-         raw masked row images, where the top and bottom regions of the detector are read out in a 
-         single framing image, and for derived data products where raw images
-         from different detector regions are combined into a single derived data product. 
+         describing the region of the detector that is contained in an EIS image. For example, raw masked row images,
+         where the top and bottom regions of the detector are read out in a single framing image.
          One instance of this object should be provided for each region that is contained in the image.
         </definition>
         <DD_Association> 
