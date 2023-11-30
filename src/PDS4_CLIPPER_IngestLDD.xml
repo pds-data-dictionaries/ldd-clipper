@@ -25,11 +25,12 @@
 
 		filter_used
 		nframes
-		readout_start_row
-		readout_end_row
-		row_step_size
-		readout_start_col
-		readout_end_col
+		Detector_Region class containing:
+			readout_start_row
+			readout_end_row
+			row_step_size
+			readout_start_col
+			readout_end_col
 		row_time_padding
 		row_offset
 		tdi_rows
@@ -1539,35 +1540,12 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association> <!-- WAC and NAC-->
-            <identifier_reference>clipper.readout_start_row</identifier_reference>
-            <reference_type>attribute_of</reference_type>
+            <identifier_reference>clipper.Detector_Region</identifier_reference>
+            <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
+            <maximum_occurrences>6</maximum_occurrences>
         </DD_Association>
-        <DD_Association> <!-- WAC and NAC-->
-            <identifier_reference>clipper.readout_end_row</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC and NAC-->
-            <identifier_reference>clipper.row_step_size</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC and NAC-->
-            <identifier_reference>clipper.readout_start_col</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC and NAC-->
-            <identifier_reference>clipper.readout_end_col</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
+        
         <DD_Association> <!-- WAC and NAC-->
             <identifier_reference>clipper.row_time_padding</identifier_reference>
             <reference_type>attribute_of</reference_type>
@@ -1589,7 +1567,55 @@
     </DD_Class>
     
     <!-- end of EIS_Parameters Class definition -->
-     
+    
+    <!-- Beginning of EIS Detector Region Class definition. Attribute of EIS_Parameters class.
+         Applicable to WAC and NAC: --> 
+    <DD_Class>
+        <name>Detector_Region</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.Detector_Region</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The class contains the start/end readout rows, start/end readout columns, and row step size
+         describing the region of the detector that is contained in an EIS image. This is applicable to 
+         raw masked row images, where the top and bottom regions of the detector are read out in a 
+         single framing image, and for derived data products where raw images
+         from different detector regions are combined into a single derived data product. 
+         One instance of this object should be provided for each region that is contained in the image.
+        </definition>
+        <DD_Association> 
+            <identifier_reference>clipper.readout_start_row</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.readout_end_row</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.row_step_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>        
+        <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.readout_start_col</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.readout_end_col</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+    <!-- End of EIS Detector Region Class definition --> 
+
     <!-- Beginning of ETHEMIS_Parameters Class definition, just a wag  -->
     
     <DD_Class>
