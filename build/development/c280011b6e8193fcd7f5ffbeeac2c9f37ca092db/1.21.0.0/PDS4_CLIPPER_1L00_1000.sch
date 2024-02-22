@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Thu Nov 30 17:32:28 UTC 2023 -->
-  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
+  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Thu Feb 22 16:30:53 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -93,16 +93,16 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:EIS_Parameters/clipper:interframe_delay">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr')">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
         <title>clipper:EIS_Parameters/clipper:interframe_delay/clipper:interframe_delay</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:EIS_Parameters/clipper:line_exposure_duration">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr')">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
         <title>clipper:EIS_Parameters/clipper:line_exposure_duration/clipper:line_exposure_duration</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -170,16 +170,16 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:ETHEMIS_Parameters/clipper:interframe_delay">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr')">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
         <title>clipper:ETHEMIS_Parameters/clipper:interframe_delay/clipper:interframe_delay</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:ETHEMIS_Parameters/clipper:line_exposure_duration">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr')">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
         <title>clipper:ETHEMIS_Parameters/clipper:line_exposure_duration/clipper:line_exposure_duration</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -215,6 +215,48 @@
       <sch:assert test=". = ('Calibrated', 'Derived', 'Partially Processed', 'Raw')">
         <title>clipper:Observation_Information/clipper:product_type/clipper:product_type</title>
         The attribute clipper:Observation_Information/clipper:product_type must be equal to one of the following values 'Calibrated', 'Derived', 'Partially Processed', 'Raw'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:SUDA_Event/clipper:event_time">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
+        <title>clipper:SUDA_Event/clipper:event_time/clipper:event_time</title>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:SUDA_Event/clipper:qi_max_amplitude">
+      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel')">
+        <title>clipper:SUDA_Event/clipper:qi_max_amplitude/clipper:qi_max_amplitude</title>
+        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:SUDA_Event/clipper:qt_max_amplitude">
+      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel')">
+        <title>clipper:SUDA_Event/clipper:qt_max_amplitude/clipper:qt_max_amplitude</title>
+        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:SUDA_Event/clipper:qv_max_amplitude">
+      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel')">
+        <title>clipper:SUDA_Event/clipper:qv_max_amplitude/clipper:qv_max_amplitude</title>
+        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:SUDA_Parameters/clipper:end_time">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
+        <title>clipper:SUDA_Parameters/clipper:end_time/clipper:end_time</title>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:SUDA_Parameters/clipper:start_time">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
+        <title>clipper:SUDA_Parameters/clipper:start_time/clipper:start_time</title>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

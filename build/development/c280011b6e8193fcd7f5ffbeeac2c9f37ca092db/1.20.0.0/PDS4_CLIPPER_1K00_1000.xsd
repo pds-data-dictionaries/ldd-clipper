@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Thu Nov 30 17:32:28 UTC 2023 -->
-  <!-- Generated from the PDS4 Information Model Version 1.18.0.0 - System Build 12.1 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Thu Feb 22 16:30:52 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.18.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.0.0.0 - clipper: - Clipper                                              -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -15,7 +15,7 @@
     attributeFormDefault="unqualified"
     version="1.0.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -23,8 +23,27 @@
         The Clipper dictionary contains classes that describe aspects of the 
         Europa Clipper Orbiter mission and related instruments.
 
-        Clipper version 1.0.0.0 (2023-07-20)
-        Trent Hare, Initial version, to provide initial generic mission attributes
+        -T. Hare, Initial version 1.0.0.0 , (2023-07-20) 
+           provide initial generic mission attributes
+
+        -T.Hare, initial updates for SUDA (2023-15-11)
+        
+        -Ray Espiritu (APL, 2023-11-29)
+	        added the following EIS keywords:
+				filter_used
+				nframes
+				Detector_Region class containing:
+					readout_start_row
+					readout_end_row
+					row_step_size
+					readout_start_col
+					readout_end_col
+				row_time_padding
+				row_offset
+				tdi_rows
+			modified the following EIS keywords:
+				mode
+
     
     </xs:documentation>
   </xs:annotation>
@@ -52,7 +71,7 @@
 
   <xs:complexType name="EIS_Parameters">
     <xs:annotation>
-      <xs:documentation>The class contain all the instrument specific
+      <xs:documentation>The class contains all the instrument specific
         attributes for the EIS WAC and NAC.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -150,11 +169,51 @@
       <xs:element name="data_quality_desc" type="clipper:data_quality_desc" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="EIS_Parameters" type="clipper:EIS_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="ETHEMIS_Parameters" type="clipper:ETHEMIS_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SUDA_Parameters" type="clipper:SUDA_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test="clipper:mission_phase_name = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Tour')"/> -->
     <!-- <xs:assert test="clipper:product_type = ('Calibrated', 'Derived', 'Partially Processed', 'Raw')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="SUDA_Event">
+    <xs:annotation>
+      <xs:documentation>The class contains all the events for SUDA
+        instrument. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="event_id" nillable="true" type="clipper:event_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="event_time" nillable="true" type="clipper:event_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="category" nillable="true" type="clipper:category" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="aid" nillable="true" type="clipper:aid" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="tof_peak_count" nillable="true" type="clipper:tof_peak_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="tof_mean" nillable="true" type="clipper:tof_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="tof_var" nillable="true" type="clipper:tof_var" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qv_max_amplitude" nillable="true" type="clipper:qv_max_amplitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qv_mean" nillable="true" type="clipper:qv_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qv_var" nillable="true" type="clipper:qv_var" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qt_max_amplitude" nillable="true" type="clipper:qt_max_amplitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qt_mean" nillable="true" type="clipper:qt_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qt_var" nillable="true" type="clipper:qt_var" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qi_max_amplitude" nillable="true" type="clipper:qi_max_amplitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qi_mean" nillable="true" type="clipper:qi_mean" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="qi_var" nillable="true" type="clipper:qi_var" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SUDA_Parameters">
+    <xs:annotation>
+      <xs:documentation>The class contains all the instrument specific
+        attributes for the SUDA instrument. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="event_count" nillable="true" type="clipper:event_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="epoch" nillable="true" type="clipper:epoch" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_time" nillable="true" type="clipper:start_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="end_time" nillable="true" type="clipper:end_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SUDA_Event" type="clipper:SUDA_Event" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
   </xs:complexType>
 
     <xs:annotation>
@@ -246,6 +305,18 @@
     <xs:simpleContent>
       <xs:extension base="clipper:begin_temperature_scs_raw_WO_Units">
         <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="category">
+    <xs:annotation>
+      <xs:documentation>Category determined by Flight Software
+        Processing.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -374,6 +445,83 @@
      <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
+
+  <xs:simpleType name="end_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="end_time">
+    <xs:annotation>
+      <xs:documentation>Milliseconds of the last event within this AID
+        (time in milliseconds since epoch). </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:end_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="epoch">
+    <xs:annotation>
+      <xs:documentation>Epoch defining the zero point of relative times
+        in year month day UTC. For example:
+        "YYYY-MM-DDThh:mm:ss.ssssssZ"</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Date_Time_YMD_UTC">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="event_count">
+    <xs:annotation>
+      <xs:documentation>Number of events contained within a given
+        AID.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="event_id">
+    <xs:annotation>
+      <xs:documentation>Event-specific event identifier from the FPGA
+        Header.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="event_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="event_time">
+    <xs:annotation>
+      <xs:documentation>FPGA event time (time of event trigger in
+        milliseconds since epoch). </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:event_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:simpleType name="exposure_code">
     <xs:annotation>
@@ -680,6 +828,138 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="qi_max_amplitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="qi_max_amplitude">
+    <xs:annotation>
+      <xs:documentation>Maximum amplitude (raw value) for ion waveform
+        (QI).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:qi_max_amplitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qi_mean">
+    <xs:annotation>
+      <xs:documentation>Mean of selected ion data
+        (QI).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qi_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared for ion data
+        (QI).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="qt_max_amplitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="qt_max_amplitude">
+    <xs:annotation>
+      <xs:documentation>Maximum amplitude (raw value) for target
+        waveform (QT).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:qt_max_amplitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qt_mean">
+    <xs:annotation>
+      <xs:documentation>Mean of selected target data
+        (QT).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qt_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared for target
+        (QT).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="qv_max_amplitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="qv_max_amplitude">
+    <xs:annotation>
+      <xs:documentation>Maximum amplitude (raw value) for velocity
+        waveform (QV).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:qv_max_amplitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Misc" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qv_mean">
+    <xs:annotation>
+      <xs:documentation>Mean of selected velocity waveform data
+        (QV).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="qv_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared for velocity
+        waveform (QV).</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:simpleType name="rationale_desc">
     <xs:annotation>
       <xs:documentation>The rationale_desc attribute describes the
@@ -885,6 +1165,26 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="start_time_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="start_time">
+    <xs:annotation>
+      <xs:documentation>Milliseconds of the first event within this AID
+        (time in milliseconds since epoch). </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:start_time_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:simpleType name="tdi_rows">
     <xs:annotation>
       <xs:documentation>Number of detector rows added together by the
@@ -1022,6 +1322,41 @@
      <xs:maxLength value="255"/>
 	   </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="tof_mean">
+    <xs:annotation>
+<xs:documentation>Selected TOF waveform mean.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="tof_peak_count">
+    <xs:annotation>
+      <xs:documentation>Total number of TOF peaks
+        found.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="tof_var">
+    <xs:annotation>
+      <xs:documentation>Signal to Noise ratio squared of selected TOF
+        waveform.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Real">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:complexType name="uncorrected_sclk_start_count">
     <xs:annotation>

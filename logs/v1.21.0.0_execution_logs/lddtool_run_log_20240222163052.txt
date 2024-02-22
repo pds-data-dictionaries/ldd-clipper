@@ -1,9 +1,9 @@
 
 >>  INFO LDDTOOL Version: 14.3.0
->>  INFO IM Version Id: 1.16.0.0
+>>  INFO IM Version Id: 1.21.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.22
->>  INFO Date: Thu Nov 30 17:32:26 UTC 2023
+>>  INFO IM Label Version Id: 1.27
+>>  INFO Date: Thu Feb 22 16:30:53 UTC 2024
 >>  INFO PARENT_DIR: /tmp/lddtool-14.3.0
 >>  INFO SCRIPT_DIR: /tmp/lddtool-14.3.0/bin
 >>  INFO LIB_DIR: /tmp/lddtool-14.3.0/lib
@@ -20,6 +20,25 @@
 >>> INFO Attribute: <command_sequence_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <image_id> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <uncorrected_sclk_start_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <event_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <epoch> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <start_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <end_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <event_id> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <event_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <category> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <tof_peak_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <tof_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <tof_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qv_max_amplitude> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qv_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qv_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qt_max_amplitude> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qt_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qt_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qi_max_amplitude> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qi_mean> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <qi_var> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <spacecraft_clock_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <spacecraft_clock_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> INFO Attribute: <spacecraft_clock_stop_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
@@ -48,6 +67,9 @@
 >>> INFO Attribute: <spatial_summing> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <uncorrected_sclk_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <event_count> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <start_time> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <category> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> WARNING Attribute: <command_sequence_number> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <flight_software_version_id> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <image_id> - This local attribute was not used in an Association.
@@ -59,19 +81,18 @@
 
 Input:
 
-     - IM Version: 1G00
+     - IM Version: 1L00
      - PDS4 Flag: true
      - LDD Flag: true
-     - IM Version: true
      - Export JSON Flag: true
 
      - Ingest LDD(s): /home/runner/work/ldd-clipper/ldd-clipper/src/PDS4_CLIPPER_IngestLDD.xml
 
 Output:
 
-     - ./PDS4_CLIPPER_1G00_1000.xsd
-     - ./PDS4_CLIPPER_1G00_1000.sch
-     - ./PDS4_CLIPPER_1G00_1000.xml
-     - ./export/JSON/PDS4_PDS_1G00.JSON
+     - ./PDS4_CLIPPER_1L00_1000.xsd
+     - ./PDS4_CLIPPER_1L00_1000.sch
+     - ./PDS4_CLIPPER_1L00_1000.xml
+     - ./export/JSON/PDS4_PDS_1L00.JSON
 
 >>  INFO Exit(0)
