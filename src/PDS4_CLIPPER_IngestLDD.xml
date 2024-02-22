@@ -15,32 +15,31 @@
         The Clipper dictionary contains classes that describe aspects of the 
         Europa Clipper Orbiter mission and related instruments.
 
-        Clipper version 1.0.0.0 (2023-07-20)
-        Trent Hare, Initial version, to provide initial generic mission attributes
+        -T. Hare, Initial version 1.0.0.0 , (2023-07-20) 
+           provide initial generic mission attributes
+
+        -T.Hare, initial updates for SUDA (2023-15-11)
+        
+        -Ray Espiritu (APL, 2023-11-29)
+	        added the following EIS keywords:
+				filter_used
+				nframes
+				Detector_Region class containing:
+					readout_start_row
+					readout_end_row
+					row_step_size
+					readout_start_col
+					readout_end_col
+				row_time_padding
+				row_offset
+				tdi_rows
+			modified the following EIS keywords:
+				mode
+
     </comment>
     
-    <last_modification_date_time>2023-11-29T06:33Z</last_modification_date_time>
+    <last_modification_date_time>2024-02-21T17:00Z</last_modification_date_time>
 
-	<!-- 2023-11-29 Ray Espiritu from APL added the following EIS keywords:
-
-		filter_used
-		nframes
-		Detector_Region class containing:
-			readout_start_row
-			readout_end_row
-			row_step_size
-			readout_start_col
-			readout_end_col
-		row_time_padding
-		row_offset
-		tdi_rows
-		
-		modified the following EIS keywords:
-
-		mode
-		
-	
-	 --> 
 <!-- Begin attribute definitions -->
     
     <!-- begin common instrument attributes -->
@@ -94,7 +93,7 @@
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
-    
+
     <DD_Attribute>
         <name>spacecraft_clock_start_count</name>
         <version_id>0.1</version_id>
@@ -360,7 +359,7 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>Indicates version of instrument flight software used to acquire image. 
-            For example, “1.00".</definition>
+            For example, "1.00".</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type> <!-- String? -->
@@ -1184,14 +1183,259 @@
         </DD_Value_Domain>
     </DD_Attribute>
 
-<!-- End of attribute definitions -->
+    <!-- begin SUDA attributes -->
 
-<!-- Beginning of class definitions (as built from attributes) -->
+    <DD_Attribute>
+        <name>event_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.event_count</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Number of events contained within a given AID.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>epoch</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.epoch</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Epoch defining the zero point of relative times in year month day UTC. For example: "YYYY-MM-DDThh:mm:ss.ssssssZ"</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>start_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.start_time</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Milliseconds of the first event within this AID (time in milliseconds since epoch).
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>end_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.end_time</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Milliseconds of the last event within this AID (time in milliseconds since epoch).
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>event_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.event_id</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Event-specific event identifier from the FPGA Header.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>event_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.event_time</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>FPGA event time (time of event trigger in milliseconds since epoch).
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>category</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.category</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Category determined by Flight Software Processing.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>tof_peak_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.tof_peak_count</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Total number of TOF peaks found.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>tof_mean</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.tof_mean</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Selected TOF waveform mean.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>tof_var</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.tof_var</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Signal to Noise ratio squared of selected TOF waveform.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>qv_max_amplitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qv_max_amplitude</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Maximum amplitude (raw value) for velocity waveform (QV).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>qv_mean</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qv_mean</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Mean of selected velocity waveform data (QV).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>qv_var</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qv_var</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Signal to Noise ratio squared for velocity waveform (QV).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>qt_max_amplitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qt_max_amplitude</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Maximum amplitude (raw value) for target waveform (QT).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>qt_mean</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qt_mean</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Mean of selected target data (QT).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>qt_var</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qt_var</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Signal to Noise ratio squared for target (QT).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>qi_max_amplitude</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qi_max_amplitude</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Maximum amplitude (raw value) for ion waveform (QI).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Misc</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>qi_mean</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qi_mean</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Mean of selected ion data (QI).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute>
+        <name>qi_var</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.qi_var</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>Signal to Noise ratio squared for ion data (QI).</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <!-- End of SUDA attribute definitions -->
+    
+    <!-- End of attribute definitions -->
+
+    <!-- Beginning of class definitions (as built from attributes) -->
     
     <DD_Class>
         <name>Observation_Information</name>
         <version_id>1.0</version_id>
-        <local_identifier>Observation_Information</local_identifier>
+        <local_identifier>clipper.Observation_Information</local_identifier>
         <submitter_name>IMG</submitter_name>
         <definition>The Observation_Information class provides information about a science observation.</definition>
         <abstract_flag>false</abstract_flag>
@@ -1293,6 +1537,12 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.SUDA_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
         <!-- place holder for additional Clipper instruments...
         <DD_Association>
             <identifier_reference>clipper.XX_Instrument_Parameters</identifier_reference>
@@ -1302,16 +1552,16 @@
         </DD_Association>
         -->
     </DD_Class>
-    
 
-<!-- Beginning of EIS_Parameters Class definition, current attributes based on LROC  -->
+
+    <!-- Beginning of EIS_Parameters Class definition, current attributes based on LROC  -->
     
     <DD_Class>
         <name>EIS_Parameters</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.EIS_Parameters</local_identifier>
         <submitter_name>IMG</submitter_name>
-        <definition>The class contain all the instrument specific attributes for the EIS WAC and NAC.</definition>
+        <definition>The class contains all the instrument specific attributes for the EIS WAC and NAC.</definition>
 
         <!-- EIS common attributes -->
         <DD_Association>
@@ -1693,10 +1943,165 @@
     </DD_Class>
     
     <!-- end of ETHEMIS_Parameters Class definition -->
-     
-<!-- End of class definitions -->
-    
-<!-- Beginning of CLIPPER Mission Dictionary Rules -->
+
+    <!-- Beginning of SUDA_Parameters Class definition  -->
+    <DD_Class>
+        <name>SUDA_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.SUDA_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The class contains all the instrument specific attributes for the
+                    SUDA instrument.
+        </definition>
+        <DD_Association>
+            <identifier_reference>clipper.event_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.epoch</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.start_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.end_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.SUDA_Event</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- end of SUDA_Parameters Class definition -->
+
+    <!-- Beginning of SUDA_Event Class definition  -->
+    <DD_Class>
+        <name>SUDA_Event</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.SUDA_Event</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The class contains all the events for SUDA instrument.
+        </definition>
+        <DD_Association>
+            <identifier_reference>clipper.event_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.event_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.category</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.aid</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.tof_peak_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.tof_mean</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.tof_var</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qv_max_amplitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qv_mean</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qv_var</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qt_max_amplitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qt_mean</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qt_var</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qt_mean</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qi_max_amplitude</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qi_mean</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.qi_var</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- end of SUDA_Event Class definition -->
+
+    <!-- End of class definitions -->
+
+    <!-- Beginning of CLIPPER Mission Dictionary Rules -->
     
     <DD_Rule>
         <local_identifier>clipper.sclk_rule</local_identifier>
