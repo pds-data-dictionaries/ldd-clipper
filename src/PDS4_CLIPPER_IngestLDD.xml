@@ -35,6 +35,12 @@
 				tdi_rows
 			modified the following EIS keywords:
 				mode
+				
+		-Ray Espiritu (APL, 2024-02-25)
+		  -added the following EIS keywords:
+		    Checkline_Row class containing:
+		      detector_row
+		      readout_order
 		  -deleted the following EIS keywords. These were placeholders from LROC and are not used by EIS:
 		      instrument_mode_id
   		      exposure_code
@@ -684,6 +690,23 @@
    
    <!-- EIS WAC/NAC common attributes. examples only, still need valid EIS specific attributes-->
 
+    <DD_Attribute>
+        <name>detector_row</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.detector_row</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Part of the Checkline_Row class. Identifies the detector row used in 
+            the checkline image. This row is readout multiple times in a checklines image and is used for jitter correction. 
+ 		</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>2047</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
     <DD_Attribute> 
         <name>mode</name>
         <version_id>1.0</version_id>
@@ -783,6 +806,23 @@
         </DD_Value_Domain>
     </DD_Attribute>    
     
+    <DD_Attribute>
+        <name>readout_order</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.readout_order</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Part of the Checkline_Row class. Provides an ordering of the detector rows that are 
+            used to generate the checklines image. The Checkline_Row with the lowest valued readout_order is read first,
+            followed by the next higher readout_order, and so on. After the Checkline_Row with the highest valued readout_order
+            is read out the instrument goes back to the lowest valued readout_order. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
 
     <DD_Attribute>
         <name>readout_start_row</name>
@@ -1610,7 +1650,7 @@
         <name>Detector_Region</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.Detector_Region</local_identifier>
-        <submitter_name>IMG</submitter_name>
+        <submitter_name>APL</submitter_name>
         <definition>The class contains the start/end readout rows, start/end readout columns, and row step size
          describing the region of the detector that is contained in an EIS image. For example, raw masked row images,
          where the top and bottom regions of the detector are read out in a single framing image.
@@ -1650,6 +1690,37 @@
 
     <!-- End of EIS Detector Region Class definition --> 
 
+    <!-- Beginning of EIS Checkline_Row Class definition. Attribute of EIS_Parameters class.
+         Applicable to WAC and NAC: --> 
+
+    <DD_Class>
+        <name>Checkline_Row</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.Checkline_Row</local_identifier>
+        <submitter_name>APL</submitter_name>
+        <definition>Defines the detector row and readout order for a checklines image. 
+         A Checkline_Row class is created for every detector row used as a checkline. For example, 
+         if there were 3 checklines readout for a given checklines image then this class would appear three
+         times in the framing image label to define each checklines row. This class does NOT appear in the 
+         label for the checklines image. Instead there is a Detector_Region class for each checkline.
+        </definition>
+        <DD_Association> 
+            <identifier_reference>clipper.detector_row</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.readout_order</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+
+    <!-- End of EIS Checkline_Row Class definition -->
+    
     <!-- Beginning of ETHEMIS_Parameters Class definition, just a wag  -->
     
     <DD_Class>
