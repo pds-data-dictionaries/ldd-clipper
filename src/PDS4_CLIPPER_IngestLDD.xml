@@ -35,6 +35,18 @@
 				tdi_rows
 			modified the following EIS keywords:
 				mode
+		  -deleted the following EIS keywords. These were placeholders from LROC and are not used by EIS:
+		      instrument_mode_id
+  		      exposure_code
+			  lookup_table_type
+			  interframe_delay
+			  spacecraft_clock_preroll_count
+			  preroll_time
+			  dac_reset_level
+			  line_code
+			  line_exposure_code
+			  line_exposure_duration
+		     
 
     </comment>
     
@@ -926,175 +938,6 @@
         </DD_Value_Domain>
     </DD_Attribute>
     
-   <!-- EIS WAC specific attributes, currently based on LROC WAC -->
-
-    <DD_Attribute> <!-- need valid enumerations, currently based on LROC WAC -->
-        <name>instrument_mode_id</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.instrument_mode_id</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded WAC mode: BW, COLOR, VIS or UV.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <DD_Permissible_Value>
-                <value>BW</value>
-                <value_meaning>The commanded WAC instrument mode was BW.</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>COLOR</value>
-                <value_meaning>The commanded WAC instrument mode was COLOR.</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>VIS</value>
-                <value_meaning>The commanded WAC instrument mode was VIS.</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>UV</value>
-                <value_meaning>The commanded WAC instrument mode was UV.</value_meaning>
-            </DD_Permissible_Value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute> 
-        <name>exposure_code</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.exposure_code</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded exposure code for a WAC observation.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute> 
-        <name>lookup_table_type</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.lookup_table_type</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Always set to STORED.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <DD_Permissible_Value>
-                <value>STORED</value>
-                <value_meaning>TBD</value_meaning>
-            </DD_Permissible_Value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>interframe_delay</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.interframe_delay</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Set to the value of the interframe delay between WAC framelets. Keyword can have
-            values between 25/64 and 280/64 seconds, in 1/64 seconds increments.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-      
-
-    <!-- EIS NAC specific attributes, currently based on LROC NAC -->
-
-    <DD_Attribute>
-        <name>spacecraft_clock_preroll_count</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.spacecraft_clock_preroll_count</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Set to the sclk string for the start of an observation preroll acquisition.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <pattern>([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{5})?</pattern>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>preroll_time</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.preroll_time</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>The UTC time and date at the start of the image acquisition command, 
-            corresponding to the acquisition of 1024 lines at the given exposure prior to the 
-            actual image acquisition.
-        </definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Date_Time_YMD</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>    
-
-    <DD_Attribute>
-        <name>dac_reset_level</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.dac_reset_level</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded DAC reset level for the NAC</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>line_code</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.line_code</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded value for the number of NAC lines to acquire,
-            in 1024 increments. (LINES = LINES_CODE * 1024)</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>line_exposure_code</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.line_exposure_code</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Index range from 0 to 4095 each corresponding to one LINE_EXPOSURE_DURATION increment.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-            <minimum_value>0</minimum_value>
-            <maximum_value>4095</maximum_value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>line_exposure_duration</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.line_exposure_duration</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>
-            For NAC, LINE_EXPOSURE_DURATION can have values between 337.6 and 
-            35,281.6 microseconds, in 128/15 microsecond increments
-            (LINE_EXPOSURE_DURATION = [LINE_EXPOSURE_CODE * 128/15] + 337.6)
-        </definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-			<unit_of_measure_type>Units_of_Time</unit_of_measure_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
     <!-- E-THEMIS attributes -->
 
     <DD_Attribute> 
@@ -1651,20 +1494,6 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
- 
-        <!-- NAC specific attributes -->
-        <DD_Association>
-            <identifier_reference>clipper.preroll_time</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.spacecraft_clock_preroll_count</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
         
         <!-- NAC environment attributes -->
         <DD_Association>
@@ -1717,54 +1546,6 @@
         </DD_Association>
                 
         <!-- WAC and NAC imaging attributes -->
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.exposure_code</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.interframe_delay</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.instrument_mode_id</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.lookup_table_type</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.line_exposure_duration</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.line_exposure_code</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.dac_reset_level</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.line_code</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
         <DD_Association> <!-- WAC and NAC -->
             <identifier_reference>clipper.compression_flag</identifier_reference>
             <reference_type>attribute_of</reference_type>
@@ -1795,7 +1576,12 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>6</maximum_occurrences>
         </DD_Association>
-        
+        <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.Checkline_Row</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>6</maximum_occurrences>
+        </DD_Association>       
         <DD_Association> <!-- WAC and NAC-->
             <identifier_reference>clipper.row_time_padding</identifier_reference>
             <reference_type>attribute_of</reference_type>
@@ -1911,25 +1697,7 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>clipper.interframe_delay</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>clipper.instrument_mode_id</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.line_exposure_duration</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.line_exposure_code</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
