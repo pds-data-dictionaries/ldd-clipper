@@ -53,7 +53,7 @@
 			  line_exposure_code
 			  line_exposure_duration
 		     
-
+		   
     </comment>
     
     <last_modification_date_time>2024-02-21T17:00Z</last_modification_date_time>
@@ -1763,12 +1763,6 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.uncorrected_sclk_start_count</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.instrument_mode_id</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
