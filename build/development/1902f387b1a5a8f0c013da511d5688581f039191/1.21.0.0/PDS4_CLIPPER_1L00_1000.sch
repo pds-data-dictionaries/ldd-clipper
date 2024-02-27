@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Thu Feb 22 16:30:53 UTC 2024 -->
+  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Tue Feb 27 23:40:08 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
@@ -85,34 +85,6 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:instrument_mode_id">
-      <sch:assert test=". = ('BW', 'COLOR', 'UV', 'VIS')">
-        <title>clipper:EIS_Parameters/clipper:instrument_mode_id/clipper:instrument_mode_id</title>
-        The attribute clipper:EIS_Parameters/clipper:instrument_mode_id must be equal to one of the following values 'BW', 'COLOR', 'UV', 'VIS'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:interframe_delay">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
-        <title>clipper:EIS_Parameters/clipper:interframe_delay/clipper:interframe_delay</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:line_exposure_duration">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
-        <title>clipper:EIS_Parameters/clipper:line_exposure_duration/clipper:line_exposure_duration</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:lookup_table_type">
-      <sch:assert test=". = ('STORED')">
-        <title>clipper:EIS_Parameters/clipper:lookup_table_type/clipper:lookup_table_type</title>
-        The attribute clipper:EIS_Parameters/clipper:lookup_table_type must be equal to the value 'STORED'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
     <sch:rule context="clipper:EIS_Parameters/clipper:middle_temperature_fpa">
       <sch:assert test="@unit = ('K', 'degC')">
         <title>clipper:EIS_Parameters/clipper:middle_temperature_fpa/clipper:middle_temperature_fpa</title>
@@ -159,27 +131,6 @@
       <sch:assert test="@unit = ('K', 'degC')">
         <title>clipper:EIS_Parameters/clipper:temperature_telescope/clipper:temperature_telescope</title>
         The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:instrument_mode_id">
-      <sch:assert test=". = ('BW', 'COLOR', 'UV', 'VIS')">
-        <title>clipper:ETHEMIS_Parameters/clipper:instrument_mode_id/clipper:instrument_mode_id</title>
-        The attribute clipper:ETHEMIS_Parameters/clipper:instrument_mode_id must be equal to one of the following values 'BW', 'COLOR', 'UV', 'VIS'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:interframe_delay">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
-        <title>clipper:ETHEMIS_Parameters/clipper:interframe_delay/clipper:interframe_delay</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:line_exposure_duration">
-      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
-        <title>clipper:ETHEMIS_Parameters/clipper:line_exposure_duration/clipper:line_exposure_duration</title>
-        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
