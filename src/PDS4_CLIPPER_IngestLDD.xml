@@ -35,7 +35,35 @@
 				tdi_rows
 			modified the following EIS keywords:
 				mode
-
+				
+		-Ray Espiritu (APL, 2024-02-25)
+		  -added the following EIS keywords:
+		    Checkline_Row class containing:
+		      detector_row
+		      readout_order
+		  -deleted the following EIS keywords. These were placeholders from LROC and are not used by EIS:
+		      instrument_mode_id
+  		      exposure_code
+			  lookup_table_type
+			  interframe_delay
+			  spacecraft_clock_preroll_count
+			  preroll_time
+			  dac_reset_level
+			  line_code
+			  line_exposure_code
+			  line_exposure_duration
+		     
+		-Ray Espiritu (APL, 2024-02-27)
+		  -added the following keywords:
+		    gain
+		    detector_temp
+		    fpm_temp1
+		    fpm_temp2
+		    frame_capture_start_count
+		    gimbal_alongtrack
+		    gimbal_crosstrack
+		    
+		   
     </comment>
     
     <last_modification_date_time>2024-02-21T17:00Z</last_modification_date_time>
@@ -54,6 +82,13 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+            <DD_Permissible_Value>
+                <value>Prelaunch</value>
+                <value_meaning>This phase covers the time period prior to launch. This may be
+                  used to describe ground calibration files or data created prior to launch to support
+                  post-launch activities.
+                </value_meaning>
+            </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Launch</value>
                 <value_meaning>This phase includes include launch, initial acquisition, 
@@ -533,12 +568,12 @@
     </DD_Attribute>
     
     <DD_Attribute>
-        <name>begin_temperature_scs</name>
+        <name>detector_temp</name>
         <version_id>1.0</version_id>
-        <local_identifier>clipper.begin_temperature_scs</local_identifier>
+        <local_identifier>clipper.detector_temp</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>TBD</definition>
+        <submitter_name>APL</submitter_name>
+        <definition>measurement obtained by EIS detector temperature sensor</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -588,12 +623,12 @@
     </DD_Attribute>
     
     <DD_Attribute> 
-        <name>middle_temperature_scs</name>
+        <name>fpm_temp1</name>
         <version_id>1.0</version_id>
-        <local_identifier>clipper.middle_temperature_scs</local_identifier>
+        <local_identifier>clipper.fpm_temp1</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>TBD</definition>
+        <submitter_name>APL</submitter_name>
+        <definition>measurement obtained by EIS focal plane module (FPM) temperature sensor 1</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -642,12 +677,12 @@
     </DD_Attribute>
     
     <DD_Attribute> 
-        <name>end_temperature_scs</name>
+        <name>fpm_temp2</name>
         <version_id>1.0</version_id>
-        <local_identifier>clipper.end_temperature_scs</local_identifier>
+        <local_identifier>clipper.fpm_temp2</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>TBD</definition>
+        <submitter_name>APL</submitter_name>
+        <definition>measurement obtained by EIS focal plane module (FPM) temperature sensor 2</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -671,6 +706,23 @@
 <!-- begin instrument dependant attributes.-->
    
    <!-- EIS WAC/NAC common attributes. examples only, still need valid EIS specific attributes-->
+
+    <DD_Attribute>
+        <name>detector_row</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.detector_row</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Part of the Checkline_Row class. Identifies the detector row used in 
+            the checkline image. This row is readout multiple times in a checklines image and is used for jitter correction. 
+ 		</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>2047</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
 
     <DD_Attribute> 
         <name>mode</name>
@@ -705,6 +757,27 @@
             <value_data_type>ASCII_Integer</value_data_type>
             <minimum_value>0</minimum_value>
             <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute>
+        <name>frame_capture_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.frame_capture_start_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>timestamp of the EIS Digital board (DB) receipt of the first 
+        detector line read out for a given frame. The detector can read out lines from
+        multiple colors in the same frame and send each color to a separate TDI collection
+        in memory where each TDI collection is associated with a unique AID. 
+        However, each AID packet will have the same frame_capture_start_count for a given frame. 
+        Thus, need this value to derive the actual starttime for a given TDI row.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <formation_rule>sssssssss.mm[m]</formation_rule>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -752,6 +825,65 @@
                 <value>FRAMING_AREA</value>
                 <value_meaning>Panchromatic framing area region of the detector.</value_meaning>
             </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>MASK</value>
+                <value_meaning>Masked region of the detector.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>gain</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.gain</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Gain state of the EIS detector when the image was taken.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>HIGH</value>
+                <value_meaning>EIS in high gain state.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>LOW</value>
+                <value_meaning>EIS in low gain state.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>gimbal_alongtrack</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.gimbal_alongtrack</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Gimbal motor position in steps in the along-track direction of spacecraft motion. 
+         This is measured as an offset from the "home" position. 0.046875 degrees per step.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>-649</minimum_value>
+            <maximum_value>661</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>gimbal_crosstrack</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.gimbal_crosstrack</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Gimbal motor position in steps in the cross-track direction of spacecraft motion. 
+         This is measured as an offset from the "home" position. 0.046875 degrees per step.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>-651</minimum_value>
+            <maximum_value>651</maximum_value>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -771,6 +903,23 @@
         </DD_Value_Domain>
     </DD_Attribute>    
     
+    <DD_Attribute>
+        <name>readout_order</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.readout_order</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Part of the Checkline_Row class. Provides an ordering of the detector rows that are 
+            used to generate the checklines image. The Checkline_Row with the lowest valued readout_order is read first,
+            followed by the next higher readout_order, and so on. After the Checkline_Row with the highest valued readout_order
+            is read out the instrument goes back to the lowest valued readout_order. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
 
     <DD_Attribute>
         <name>readout_start_row</name>
@@ -926,175 +1075,6 @@
         </DD_Value_Domain>
     </DD_Attribute>
     
-   <!-- EIS WAC specific attributes, currently based on LROC WAC -->
-
-    <DD_Attribute> <!-- need valid enumerations, currently based on LROC WAC -->
-        <name>instrument_mode_id</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.instrument_mode_id</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded WAC mode: BW, COLOR, VIS or UV.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <DD_Permissible_Value>
-                <value>BW</value>
-                <value_meaning>The commanded WAC instrument mode was BW.</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>COLOR</value>
-                <value_meaning>The commanded WAC instrument mode was COLOR.</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>VIS</value>
-                <value_meaning>The commanded WAC instrument mode was VIS.</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>UV</value>
-                <value_meaning>The commanded WAC instrument mode was UV.</value_meaning>
-            </DD_Permissible_Value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute> 
-        <name>exposure_code</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.exposure_code</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded exposure code for a WAC observation.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute> 
-        <name>lookup_table_type</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.lookup_table_type</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Always set to STORED.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <DD_Permissible_Value>
-                <value>STORED</value>
-                <value_meaning>TBD</value_meaning>
-            </DD_Permissible_Value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>interframe_delay</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.interframe_delay</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Set to the value of the interframe delay between WAC framelets. Keyword can have
-            values between 25/64 and 280/64 seconds, in 1/64 seconds increments.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-      
-
-    <!-- EIS NAC specific attributes, currently based on LROC NAC -->
-
-    <DD_Attribute>
-        <name>spacecraft_clock_preroll_count</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.spacecraft_clock_preroll_count</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Set to the sclk string for the start of an observation preroll acquisition.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <pattern>([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{5})?</pattern>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>preroll_time</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.preroll_time</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>The UTC time and date at the start of the image acquisition command, 
-            corresponding to the acquisition of 1024 lines at the given exposure prior to the 
-            actual image acquisition.
-        </definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Date_Time_YMD</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>    
-
-    <DD_Attribute>
-        <name>dac_reset_level</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.dac_reset_level</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded DAC reset level for the NAC</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>line_code</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.line_code</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Records the commanded value for the number of NAC lines to acquire,
-            in 1024 increments. (LINES = LINES_CODE * 1024)</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>line_exposure_code</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.line_exposure_code</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Index range from 0 to 4095 each corresponding to one LINE_EXPOSURE_DURATION increment.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-            <minimum_value>0</minimum_value>
-            <maximum_value>4095</maximum_value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>line_exposure_duration</name> <!-- need valid -->
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.line_exposure_duration</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>
-            For NAC, LINE_EXPOSURE_DURATION can have values between 337.6 and 
-            35,281.6 microseconds, in 128/15 microsecond increments
-            (LINE_EXPOSURE_DURATION = [LINE_EXPOSURE_CODE * 128/15] + 337.6)
-        </definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-			<unit_of_measure_type>Units_of_Time</unit_of_measure_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
     <!-- E-THEMIS attributes -->
 
     <DD_Attribute> 
@@ -1577,22 +1557,35 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
+
+        <DD_Association>
+            <identifier_reference>clipper.gain</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
         
         <!-- WAC specific attributes -->
         <DD_Association>
-            <identifier_reference>clipper.begin_temperature_scs</identifier_reference>
+            <identifier_reference>clipper.detector_temp</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>clipper.middle_temperature_scs</identifier_reference>
+            <identifier_reference>clipper.fpm_temp1</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>clipper.end_temperature_scs</identifier_reference>
+            <identifier_reference>clipper.fpm_temp2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.frame_capture_start_count</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -1651,20 +1644,6 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
- 
-        <!-- NAC specific attributes -->
-        <DD_Association>
-            <identifier_reference>clipper.preroll_time</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.spacecraft_clock_preroll_count</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
         
         <!-- NAC environment attributes -->
         <DD_Association>
@@ -1717,54 +1696,6 @@
         </DD_Association>
                 
         <!-- WAC and NAC imaging attributes -->
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.exposure_code</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.interframe_delay</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.instrument_mode_id</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- WAC -->
-            <identifier_reference>clipper.lookup_table_type</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.line_exposure_duration</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.line_exposure_code</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.dac_reset_level</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association> <!-- NAC -->
-            <identifier_reference>clipper.line_code</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
         <DD_Association> <!-- WAC and NAC -->
             <identifier_reference>clipper.compression_flag</identifier_reference>
             <reference_type>attribute_of</reference_type>
@@ -1790,12 +1721,29 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.gimbal_alongtrack</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.gimbal_crosstrack</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC-->
             <identifier_reference>clipper.Detector_Region</identifier_reference>
             <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>6</maximum_occurrences>
         </DD_Association>
-        
+        <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.Checkline_Row</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>6</maximum_occurrences>
+        </DD_Association>       
         <DD_Association> <!-- WAC and NAC-->
             <identifier_reference>clipper.row_time_padding</identifier_reference>
             <reference_type>attribute_of</reference_type>
@@ -1824,7 +1772,7 @@
         <name>Detector_Region</name>
         <version_id>1.0</version_id>
         <local_identifier>clipper.Detector_Region</local_identifier>
-        <submitter_name>IMG</submitter_name>
+        <submitter_name>APL</submitter_name>
         <definition>The class contains the start/end readout rows, start/end readout columns, and row step size
          describing the region of the detector that is contained in an EIS image. For example, raw masked row images,
          where the top and bottom regions of the detector are read out in a single framing image.
@@ -1864,6 +1812,37 @@
 
     <!-- End of EIS Detector Region Class definition --> 
 
+    <!-- Beginning of EIS Checkline_Row Class definition. Attribute of EIS_Parameters class.
+         Applicable to WAC and NAC: --> 
+
+    <DD_Class>
+        <name>Checkline_Row</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.Checkline_Row</local_identifier>
+        <submitter_name>APL</submitter_name>
+        <definition>Defines the detector row and readout order for a checklines image. 
+         A Checkline_Row class is created for every detector row used as a checkline. For example, 
+         if there were 3 checklines readout for a given checklines image then this class would appear three
+         times in the framing image label to define each checklines row. This class does NOT appear in the 
+         label for the checklines image. Instead there is a Detector_Region class for each checkline.
+        </definition>
+        <DD_Association> 
+            <identifier_reference>clipper.detector_row</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.readout_order</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+
+
+    <!-- End of EIS Checkline_Row Class definition -->
+    
     <!-- Beginning of ETHEMIS_Parameters Class definition, just a wag  -->
     
     <DD_Class>
@@ -1906,30 +1885,6 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.uncorrected_sclk_start_count</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.interframe_delay</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.instrument_mode_id</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.line_exposure_duration</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.line_exposure_code</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>

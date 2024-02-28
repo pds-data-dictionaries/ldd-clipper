@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Thu Feb 22 16:30:52 UTC 2024 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:30:54 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -43,12 +43,57 @@
 				tdi_rows
 			modified the following EIS keywords:
 				mode
-
+				
+		-Ray Espiritu (APL, 2024-02-25)
+		  -added the following EIS keywords:
+		    Checkline_Row class containing:
+		      detector_row
+		      readout_order
+		  -deleted the following EIS keywords. These were placeholders from LROC and are not used by EIS:
+		      instrument_mode_id
+  		      exposure_code
+			  lookup_table_type
+			  interframe_delay
+			  spacecraft_clock_preroll_count
+			  preroll_time
+			  dac_reset_level
+			  line_code
+			  line_exposure_code
+			  line_exposure_duration
+		     
+		-Ray Espiritu (APL, 2024-02-27)
+		  -added the following keywords:
+		    gain
+		    detector_temp
+		    fpm_temp1
+		    fpm_temp2
+		    frame_capture_start_count
+		    gimbal_alongtrack
+		    gimbal_crosstrack
+		    
+		   
     
     </xs:documentation>
   </xs:annotation>
  
   <xs:element name="Observation_Information" type="clipper:Observation_Information"> </xs:element>
+
+  <xs:complexType name="Checkline_Row">
+    <xs:annotation>
+      <xs:documentation>Defines the detector row and readout order for a
+        checklines image. A Checkline_Row class is created for every
+        detector row used as a checkline. For example, if there were 3
+        checklines readout for a given checklines image then this class
+        would appear three times in the framing image label to define
+        each checklines row. This class does NOT appear in the label for
+        the checklines image. Instead there is a Detector_Region class
+        for each checkline. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="detector_row" type="clipper:detector_row" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="readout_order" type="clipper:readout_order" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="Detector_Region">
     <xs:annotation>
@@ -77,9 +122,11 @@
     <xs:sequence>
       <xs:element name="upload_id" type="clipper:upload_id" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="mode" type="clipper:mode" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="begin_temperature_scs" type="clipper:begin_temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="middle_temperature_scs" type="clipper:middle_temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="end_temperature_scs" type="clipper:end_temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gain" type="clipper:gain" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="detector_temp" type="clipper:detector_temp" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fpm_temp1" type="clipper:fpm_temp1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="fpm_temp2" type="clipper:fpm_temp2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="frame_capture_start_count" type="clipper:frame_capture_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="begin_temperature_fpa" type="clipper:begin_temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="middle_temperature_fpa" type="clipper:middle_temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="end_temperature_fpa" type="clipper:end_temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -89,8 +136,6 @@
       <xs:element name="begin_temperature_fpa_raw" type="clipper:begin_temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="middle_temperature_fpa_raw" type="clipper:middle_temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="end_temperature_fpa_raw" type="clipper:end_temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="preroll_time" type="clipper:preroll_time" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="spacecraft_clock_preroll_count" type="clipper:spacecraft_clock_preroll_count" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="temperature_scs" type="clipper:temperature_scs" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="temperature_fpa" type="clipper:temperature_fpa" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="temperature_fpga" type="clipper:temperature_fpga" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -99,27 +144,21 @@
       <xs:element name="temperature_fpa_raw" type="clipper:temperature_fpa_raw" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="temperature_fpga_raw" type="clipper:temperature_fpga_raw" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="temperature_telescope_raw" type="clipper:temperature_telescope_raw" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="exposure_code" type="clipper:exposure_code" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="interframe_delay" type="clipper:interframe_delay" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="instrument_mode_id" type="clipper:instrument_mode_id" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="lookup_table_type" type="clipper:lookup_table_type" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="line_exposure_duration" type="clipper:line_exposure_duration" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="line_exposure_code" type="clipper:line_exposure_code" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="dac_reset_level" type="clipper:dac_reset_level" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="line_code" type="clipper:line_code" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="compression_flag" type="clipper:compression_flag" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="filter_used" type="clipper:filter_used" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="nframes" type="clipper:nframes" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gimbal_alongtrack" type="clipper:gimbal_alongtrack" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gimbal_crosstrack" type="clipper:gimbal_crosstrack" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="Detector_Region" type="clipper:Detector_Region" minOccurs="0" maxOccurs="6"> </xs:element>
+      <xs:element name="Checkline_Row" type="clipper:Checkline_Row" minOccurs="0" maxOccurs="6"> </xs:element>
       <xs:element name="row_time_padding" type="clipper:row_time_padding" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="row_offset" type="clipper:row_offset" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="tdi_rows" type="clipper:tdi_rows" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test="clipper:mode = ('FRAMING', 'PUSHBROOM')"/> -->
-    <!-- <xs:assert test="clipper:instrument_mode_id = ('BW', 'COLOR', 'UV', 'VIS')"/> -->
-    <!-- <xs:assert test="clipper:lookup_table_type = ('STORED')"/> -->
-    <!-- <xs:assert test="clipper:filter_used = ('BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'NEARUV', 'ONEMU', 'RED')"/> -->
+    <!-- <xs:assert test="clipper:gain = ('HIGH', 'LOW')"/> -->
+    <!-- <xs:assert test="clipper:filter_used = ('BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'MASK', 'NEARUV', 'ONEMU', 'RED')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
@@ -135,15 +174,10 @@
       <xs:element name="spatial_summing" type="clipper:spatial_summing" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="time_delay_integration_flag" type="clipper:time_delay_integration_flag" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="uncorrected_sclk_start_count" nillable="true" type="clipper:uncorrected_sclk_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="interframe_delay" type="clipper:interframe_delay" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="instrument_mode_id" type="clipper:instrument_mode_id" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="line_exposure_duration" type="clipper:line_exposure_duration" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="line_exposure_code" type="clipper:line_exposure_code" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="compression_flag" type="clipper:compression_flag" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test="clipper:time_delay_integration_flag = ('DISABLED', 'ENABLED')"/> -->
-    <!-- <xs:assert test="clipper:instrument_mode_id = ('BW', 'COLOR', 'UV', 'VIS')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
@@ -172,7 +206,7 @@
       <xs:element name="SUDA_Parameters" type="clipper:SUDA_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="clipper:mission_phase_name = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Tour')"/> -->
+    <!-- <xs:assert test="clipper:mission_phase_name = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Prelaunch', 'Tour')"/> -->
     <!-- <xs:assert test="clipper:product_type = ('Calibrated', 'Derived', 'Partially Processed', 'Raw')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
@@ -273,24 +307,6 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="begin_temperature_scs_WO_Units">
-    <xs:restriction base="pds:ASCII_Real">
-     <xs:minInclusive value="-1.7976931348623157e308"/>
-     <xs:maxInclusive value="1.7976931348623157e308"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="begin_temperature_scs">
-    <xs:annotation>
-<xs:documentation>_TBD</xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="clipper:begin_temperature_scs_WO_Units">
-        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
   <xs:simpleType name="begin_temperature_scs_raw_WO_Units">
     <xs:restriction base="pds:ASCII_Integer">
      <xs:minInclusive value="-9223372036854775808"/>
@@ -332,17 +348,6 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="dac_reset_level">
-    <xs:annotation>
-      <xs:documentation>Records the commanded DAC reset level for the
-        NAC</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Integer">
-     <xs:minInclusive value="-9223372036854775808"/>
-     <xs:maxInclusive value="9223372036854775807"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name="data_quality_desc">
     <xs:annotation>
       <xs:documentation>The data_quality_desc attribute describes the
@@ -367,6 +372,38 @@
      <xs:maxLength value="255"/>
 	   </xs:restriction>
   </xs:simpleType>
+
+  <xs:simpleType name="detector_row">
+    <xs:annotation>
+      <xs:documentation>Part of the Checkline_Row class. Identifies the
+        detector row used in the checkline image. This row is readout
+        multiple times in a checklines image and is used for jitter
+        correction. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="2047"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="detector_temp_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="detector_temp">
+    <xs:annotation>
+      <xs:documentation>measurement obtained by EIS detector temperature
+        sensor</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:detector_temp_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:simpleType name="encounter_id">
     <xs:annotation>
@@ -417,24 +454,6 @@
      <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
-
-  <xs:simpleType name="end_temperature_scs_WO_Units">
-    <xs:restriction base="pds:ASCII_Real">
-     <xs:minInclusive value="-1.7976931348623157e308"/>
-     <xs:maxInclusive value="1.7976931348623157e308"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="end_temperature_scs">
-    <xs:annotation>
-<xs:documentation>_TBD</xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="clipper:end_temperature_scs_WO_Units">
-        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
 
   <xs:simpleType name="end_temperature_scs_raw">
     <xs:annotation>
@@ -523,17 +542,6 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="exposure_code">
-    <xs:annotation>
-      <xs:documentation>Records the commanded exposure code for a WAC
-        observation.</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Integer">
-     <xs:minInclusive value="-9223372036854775808"/>
-     <xs:maxInclusive value="9223372036854775807"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name="filter_used">
     <xs:annotation>
       <xs:documentation>Indicates the region of the detector that was
@@ -547,10 +555,55 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="instrument_mode_id">
+  <xs:simpleType name="fpm_temp1_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="fpm_temp1">
     <xs:annotation>
-      <xs:documentation>Records the commanded WAC mode: BW, COLOR, VIS
-        or UV.</xs:documentation>
+      <xs:documentation>measurement obtained by EIS focal plane module
+        (FPM) temperature sensor 1</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:fpm_temp1_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="fpm_temp2_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="fpm_temp2">
+    <xs:annotation>
+      <xs:documentation>measurement obtained by EIS focal plane module
+        (FPM) temperature sensor 2</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="clipper:fpm_temp2_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="frame_capture_start_count">
+    <xs:annotation>
+      <xs:documentation>timestamp of the EIS Digital board (DB) receipt
+        of the first detector line read out for a given frame. The
+        detector can read out lines from multiple colors in the same
+        frame and send each color to a separate TDI collection in memory
+        where each TDI collection is associated with a unique AID.
+        However, each AID packet will have the same
+        frame_capture_start_count for a given frame. Thus, need this
+        value to derive the actual starttime for a given TDI
+        row.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
@@ -558,77 +611,40 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="interframe_delay_WO_Units">
-    <xs:restriction base="pds:ASCII_Real">
-     <xs:minInclusive value="-1.7976931348623157e308"/>
-     <xs:maxInclusive value="1.7976931348623157e308"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="interframe_delay">
+  <xs:simpleType name="gain">
     <xs:annotation>
-      <xs:documentation>Set to the value of the interframe delay between
-        WAC framelets. Keyword can have values between 25/64 and 280/64
-        seconds, in 1/64 seconds increments.</xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="clipper:interframe_delay_WO_Units">
-        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:simpleType name="line_code">
-    <xs:annotation>
-      <xs:documentation>Records the commanded value for the number of
-        NAC lines to acquire, in 1024 increments. (LINES = LINES_CODE *
-        1024)</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Integer">
-     <xs:minInclusive value="-9223372036854775808"/>
-     <xs:maxInclusive value="9223372036854775807"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="line_exposure_code">
-    <xs:annotation>
-      <xs:documentation>Index range from 0 to 4095 each corresponding to
-        one LINE_EXPOSURE_DURATION increment.</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Integer">
-     <xs:minInclusive value="0"/>
-     <xs:maxInclusive value="4095"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="line_exposure_duration_WO_Units">
-    <xs:restriction base="pds:ASCII_Real">
-     <xs:minInclusive value="-1.7976931348623157e308"/>
-     <xs:maxInclusive value="1.7976931348623157e308"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="line_exposure_duration">
-    <xs:annotation>
-      <xs:documentation> For NAC, LINE_EXPOSURE_DURATION can have values
-        between 337.6 and 35,281.6 microseconds, in 128/15 microsecond
-        increments (LINE_EXPOSURE_DURATION = [LINE_EXPOSURE_CODE *
-        128/15] + 337.6) </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="clipper:line_exposure_duration_WO_Units">
-        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:simpleType name="lookup_table_type">
-    <xs:annotation>
-<xs:documentation>Always set to STORED.</xs:documentation>
+      <xs:documentation>Gain state of the EIS detector when the image
+        was taken.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
      <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gimbal_alongtrack">
+    <xs:annotation>
+      <xs:documentation>Gimbal motor position in steps in the
+        along-track direction of spacecraft motion. This is measured as
+        an offset from the "home" position. 0.046875 degrees per step.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-649"/>
+     <xs:maxInclusive value="661"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gimbal_crosstrack">
+    <xs:annotation>
+      <xs:documentation>Gimbal motor position in steps in the
+        cross-track direction of spacecraft motion. This is measured as
+        an offset from the "home" position. 0.046875 degrees per step.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-651"/>
+     <xs:maxInclusive value="651"/>
 	   </xs:restriction>
   </xs:simpleType>
 
@@ -678,24 +694,6 @@
      <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
-
-  <xs:simpleType name="middle_temperature_scs_WO_Units">
-    <xs:restriction base="pds:ASCII_Real">
-     <xs:minInclusive value="-1.7976931348623157e308"/>
-     <xs:maxInclusive value="1.7976931348623157e308"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="middle_temperature_scs">
-    <xs:annotation>
-<xs:documentation>_TBD</xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="clipper:middle_temperature_scs_WO_Units">
-        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
 
   <xs:simpleType name="middle_temperature_scs_raw">
     <xs:annotation>
@@ -779,18 +777,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-
-  <xs:simpleType name="preroll_time">
-    <xs:annotation>
-      <xs:documentation>The UTC time and date at the start of the image
-        acquisition command, corresponding to the acquisition of 1024
-        lines at the given exposure prior to the actual image
-        acquisition. </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Date_Time_YMD">
-  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSSSS(Z)" -->
-	   </xs:restriction>
-  </xs:simpleType>
 
   <xs:simpleType name="producer_institution_name">
     <xs:annotation>
@@ -999,6 +985,22 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="readout_order">
+    <xs:annotation>
+      <xs:documentation>Part of the Checkline_Row class. Provides an
+        ordering of the detector rows that are used to generate the
+        checklines image. The Checkline_Row with the lowest valued
+        readout_order is read first, followed by the next higher
+        readout_order, and so on. After the Checkline_Row with the
+        highest valued readout_order is read out the instrument goes
+        back to the lowest valued readout_order. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="readout_start_col">
     <xs:annotation>
       <xs:documentation>The EIS detector can be commanded to read out
@@ -1099,18 +1101,6 @@
     	<xs:pattern value='[0-9]+'/>
      <xs:minInclusive value="0"/>
      <xs:maxInclusive value="18446744073709551615"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="spacecraft_clock_preroll_count">
-    <xs:annotation>
-      <xs:documentation>Set to the sclk string for the start of an
-        observation preroll acquisition.</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
-    	<xs:pattern value='([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{5})?'/>
-     <xs:minLength value="1"/>
-     <xs:maxLength value="255"/>
 	   </xs:restriction>
   </xs:simpleType>
 
