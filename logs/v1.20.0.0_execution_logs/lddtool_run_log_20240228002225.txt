@@ -1,9 +1,9 @@
 
 >>  INFO LDDTOOL Version: 14.3.0
->>  INFO IM Version Id: 1.21.0.0
+>>  INFO IM Version Id: 1.20.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.27
->>  INFO Date: Wed Feb 28 00:16:48 UTC 2024
+>>  INFO IM Label Version Id: 1.26
+>>  INFO Date: Wed Feb 28 00:22:28 UTC 2024
 >>  INFO PARENT_DIR: /tmp/lddtool-14.3.0
 >>  INFO SCRIPT_DIR: /tmp/lddtool-14.3.0/bin
 >>  INFO LIB_DIR: /tmp/lddtool-14.3.0/lib
@@ -56,6 +56,10 @@
 >>> INFO Attribute: <compression_flag> - The default maximum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <frame_capture_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <frame_capture_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <gimbal_alongtrack> - The default minimum value provided by the attribute's data type is being overridden with -649
+>>> INFO Attribute: <gimbal_alongtrack> - The default maximum value provided by the attribute's data type is being overridden with 661
+>>> INFO Attribute: <gimbal_crosstrack> - The default minimum value provided by the attribute's data type is being overridden with -651
+>>> INFO Attribute: <gimbal_crosstrack> - The default maximum value provided by the attribute's data type is being overridden with 651
 >>> INFO Attribute: <readout_order> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <readout_start_row> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <readout_start_row> - The default maximum value provided by the attribute's data type is being overridden with 2047
@@ -84,18 +88,19 @@
 
 Input:
 
-     - IM Version: 1L00
+     - IM Version: 1K00
      - PDS4 Flag: true
      - LDD Flag: true
+     - IM Version: true
      - Export JSON Flag: true
 
      - Ingest LDD(s): /home/runner/work/ldd-clipper/ldd-clipper/src/PDS4_CLIPPER_IngestLDD.xml
 
 Output:
 
-     - ./PDS4_CLIPPER_1L00_1000.xsd
-     - ./PDS4_CLIPPER_1L00_1000.sch
-     - ./PDS4_CLIPPER_1L00_1000.xml
-     - ./export/JSON/PDS4_PDS_1L00.JSON
+     - ./PDS4_CLIPPER_1K00_1000.xsd
+     - ./PDS4_CLIPPER_1K00_1000.sch
+     - ./PDS4_CLIPPER_1K00_1000.xml
+     - ./export/JSON/PDS4_PDS_1K00.JSON
 
 >>  INFO Exit(0)
