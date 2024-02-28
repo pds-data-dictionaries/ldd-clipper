@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:22:28 UTC 2024 -->
-  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:30:55 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.19.0.0 - System Build 13.0 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.19.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.0.0.0 - clipper: - Clipper                                              -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -15,7 +15,7 @@
     attributeFormDefault="unqualified"
     version="1.0.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -158,7 +158,7 @@
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test="clipper:mode = ('FRAMING', 'PUSHBROOM')"/> -->
     <!-- <xs:assert test="clipper:gain = ('HIGH', 'LOW')"/> -->
-    <!-- <xs:assert test="clipper:filter_used = ('BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'NEARUV', 'ONEMU', 'RED')"/> -->
+    <!-- <xs:assert test="clipper:filter_used = ('BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'MASK', 'NEARUV', 'ONEMU', 'RED')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
@@ -206,7 +206,7 @@
       <xs:element name="SUDA_Parameters" type="clipper:SUDA_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="clipper:mission_phase_name = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Tour')"/> -->
+    <!-- <xs:assert test="clipper:mission_phase_name = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Prelaunch', 'Tour')"/> -->
     <!-- <xs:assert test="clipper:product_type = ('Calibrated', 'Derived', 'Partially Processed', 'Raw')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:22:28 UTC 2024 -->
+  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:30:55 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model Version 1.19.0.0 - System Build 13.0 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
@@ -72,9 +72,9 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:EIS_Parameters/clipper:filter_used">
-      <sch:assert test=". = ('BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'NEARUV', 'ONEMU', 'RED')">
+      <sch:assert test=". = ('BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'MASK', 'NEARUV', 'ONEMU', 'RED')">
         <title>clipper:EIS_Parameters/clipper:filter_used/clipper:filter_used</title>
-        The attribute clipper:EIS_Parameters/clipper:filter_used must be equal to one of the following values 'BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'NEARUV', 'ONEMU', 'RED'.</sch:assert>
+        The attribute clipper:EIS_Parameters/clipper:filter_used must be equal to one of the following values 'BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'MASK', 'NEARUV', 'ONEMU', 'RED'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -163,9 +163,9 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:Observation_Information/clipper:mission_phase_name">
-      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Tour')))) then false() else true()">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Prelaunch', 'Tour')))) then false() else true()">
         <title>clipper:Observation_Information/clipper:mission_phase_name/clipper:mission_phase_name</title>
-        The attribute clipper:Observation_Information/clipper:mission_phase_name must be nulled or equal to one of the following values 'Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Tour'.</sch:assert>
+        The attribute clipper:Observation_Information/clipper:mission_phase_name must be nulled or equal to one of the following values 'Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Prelaunch', 'Tour'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
