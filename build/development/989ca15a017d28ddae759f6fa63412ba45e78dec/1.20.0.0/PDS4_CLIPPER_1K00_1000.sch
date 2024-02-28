@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Tue Feb 27 23:40:11 UTC 2024 -->
+  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:16:24 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
@@ -50,16 +50,16 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:begin_temperature_scs">
+    <sch:rule context="clipper:EIS_Parameters/clipper:begin_temperature_scs_raw">
       <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:EIS_Parameters/clipper:begin_temperature_scs/clipper:begin_temperature_scs</title>
+        <title>clipper:EIS_Parameters/clipper:begin_temperature_scs_raw/clipper:begin_temperature_scs_raw</title>
         The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:begin_temperature_scs_raw">
+    <sch:rule context="clipper:EIS_Parameters/clipper:detector_temp">
       <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:EIS_Parameters/clipper:begin_temperature_scs_raw/clipper:begin_temperature_scs_raw</title>
+        <title>clipper:EIS_Parameters/clipper:detector_temp/clipper:detector_temp</title>
         The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
     </sch:rule>
   </sch:pattern>
@@ -71,13 +71,6 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:end_temperature_scs">
-      <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:EIS_Parameters/clipper:end_temperature_scs/clipper:end_temperature_scs</title>
-        The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
     <sch:rule context="clipper:EIS_Parameters/clipper:filter_used">
       <sch:assert test=". = ('BLUE', 'CLEAR', 'FRAMING_AREA', 'GREEN', 'IR1', 'NEARUV', 'ONEMU', 'RED')">
         <title>clipper:EIS_Parameters/clipper:filter_used/clipper:filter_used</title>
@@ -85,16 +78,30 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:middle_temperature_fpa">
+    <sch:rule context="clipper:EIS_Parameters/clipper:fpm_temp1">
       <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:EIS_Parameters/clipper:middle_temperature_fpa/clipper:middle_temperature_fpa</title>
+        <title>clipper:EIS_Parameters/clipper:fpm_temp1/clipper:fpm_temp1</title>
         The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:rule context="clipper:EIS_Parameters/clipper:middle_temperature_scs">
+    <sch:rule context="clipper:EIS_Parameters/clipper:fpm_temp2">
       <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:EIS_Parameters/clipper:middle_temperature_scs/clipper:middle_temperature_scs</title>
+        <title>clipper:EIS_Parameters/clipper:fpm_temp2/clipper:fpm_temp2</title>
+        The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:EIS_Parameters/clipper:gain">
+      <sch:assert test=". = ('HIGH', 'LOW')">
+        <title>clipper:EIS_Parameters/clipper:gain/clipper:gain</title>
+        The attribute clipper:EIS_Parameters/clipper:gain must be equal to one of the following values 'HIGH', 'LOW'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="clipper:EIS_Parameters/clipper:middle_temperature_fpa">
+      <sch:assert test="@unit = ('K', 'degC')">
+        <title>clipper:EIS_Parameters/clipper:middle_temperature_fpa/clipper:middle_temperature_fpa</title>
         The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
     </sch:rule>
   </sch:pattern>

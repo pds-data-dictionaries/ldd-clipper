@@ -3,7 +3,7 @@
 >>  INFO IM Version Id: 1.20.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.26
->>  INFO Date: Tue Feb 27 23:40:11 UTC 2024
+>>  INFO Date: Wed Feb 28 00:16:24 UTC 2024
 >>  INFO PARENT_DIR: /tmp/lddtool-14.3.0
 >>  INFO SCRIPT_DIR: /tmp/lddtool-14.3.0/bin
 >>  INFO LIB_DIR: /tmp/lddtool-14.3.0/lib
@@ -54,6 +54,8 @@
 >>> INFO Attribute: <detector_row> - The default maximum value provided by the attribute's data type is being overridden with 2047
 >>> INFO Attribute: <compression_flag> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <compression_flag> - The default maximum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <frame_capture_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <frame_capture_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> INFO Attribute: <readout_order> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <readout_start_row> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <readout_start_row> - The default maximum value provided by the attribute's data type is being overridden with 2047
