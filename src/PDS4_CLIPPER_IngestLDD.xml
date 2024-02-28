@@ -53,6 +53,14 @@
 			  line_exposure_code
 			  line_exposure_duration
 		     
+		-Ray Espiritu (APL, 2024-02-27)
+		  -added the following keywords:
+		    gain
+		    detector_temp
+		    fpm_temp1
+		    fpm_temp2
+		    frame_capture_start_count
+		    
 		   
     </comment>
     
@@ -551,12 +559,12 @@
     </DD_Attribute>
     
     <DD_Attribute>
-        <name>begin_temperature_scs</name>
+        <name>detector_temp</name>
         <version_id>1.0</version_id>
-        <local_identifier>clipper.begin_temperature_scs</local_identifier>
+        <local_identifier>clipper.detector_temp</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>TBD</definition>
+        <submitter_name>APL</submitter_name>
+        <definition>measurement obtained by EIS detector temperature sensor</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -606,12 +614,12 @@
     </DD_Attribute>
     
     <DD_Attribute> 
-        <name>middle_temperature_scs</name>
+        <name>fpm_temp1</name>
         <version_id>1.0</version_id>
-        <local_identifier>clipper.middle_temperature_scs</local_identifier>
+        <local_identifier>clipper.fpm_temp1</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>TBD</definition>
+        <submitter_name>APL</submitter_name>
+        <definition>measurement obtained by EIS focal plane module (FPM) temperature sensor 1</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -660,12 +668,12 @@
     </DD_Attribute>
     
     <DD_Attribute> 
-        <name>end_temperature_scs</name>
+        <name>fpm_temp2</name>
         <version_id>1.0</version_id>
-        <local_identifier>clipper.end_temperature_scs</local_identifier>
+        <local_identifier>clipper.fpm_temp2</local_identifier>
         <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>TBD</definition>
+        <submitter_name>APL</submitter_name>
+        <definition>measurement obtained by EIS focal plane module (FPM) temperature sensor 2</definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -786,6 +794,27 @@
             <DD_Permissible_Value>
                 <value>FRAMING_AREA</value>
                 <value_meaning>Panchromatic framing area region of the detector.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>gain</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.gain</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Gain state of the EIS detector when the image was taken.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>HIGH</value>
+                <value_meaning>EIS in high gain state.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>LOW</value>
+                <value_meaning>EIS in low gain state.</value_meaning>
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
@@ -1460,22 +1489,29 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
+
+        <DD_Association>
+            <identifier_reference>clipper.gain</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
         
         <!-- WAC specific attributes -->
         <DD_Association>
-            <identifier_reference>clipper.begin_temperature_scs</identifier_reference>
+            <identifier_reference>clipper.detector_temp</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>clipper.middle_temperature_scs</identifier_reference>
+            <identifier_reference>clipper.fpm_temp1</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>clipper.end_temperature_scs</identifier_reference>
+            <identifier_reference>clipper.fpm_temp2</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
