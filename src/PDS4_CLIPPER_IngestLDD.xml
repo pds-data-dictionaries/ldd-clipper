@@ -83,6 +83,13 @@
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Preserved</value_data_type>
             <DD_Permissible_Value>
+                <value>Prelaunch</value>
+                <value_meaning>This phase covers the time period prior to launch. This may be
+                  used to describe ground calibration files or data created prior to launch to support
+                  post-launch activities.
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>Launch</value>
                 <value_meaning>This phase includes include launch, initial acquisition, 
                   solar array deployment, establishment of power-positive attitude, and 
@@ -817,6 +824,10 @@
             <DD_Permissible_Value>
                 <value>FRAMING_AREA</value>
                 <value_meaning>Panchromatic framing area region of the detector.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>MASK</value>
+                <value_meaning>Masked region of the detector.</value_meaning>
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
