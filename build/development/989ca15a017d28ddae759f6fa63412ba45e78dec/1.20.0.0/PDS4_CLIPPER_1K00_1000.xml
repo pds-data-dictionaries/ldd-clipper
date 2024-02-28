@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML product label for PDS4 V1.20.0.0  Tue Feb 27 23:40:11 UTC 2024 -->
+  <!-- PDS4 XML product label for PDS4 V1.20.0.0  Wed Feb 28 00:16:24 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model V1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 XML product label is an operational deliverable. *** -->
 <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.sch"
@@ -26,9 +26,9 @@
     <File_Area_XML_Schema>
         <File>
             <file_name>PDS4_CLIPPER_1K00_1000.xsd</file_name>
-            <creation_date_time>2024-02-27T15:40:11</creation_date_time>
-            <file_size unit="byte">56165</file_size>
-            <records>1304</records>
+            <creation_date_time>2024-02-27T16:16:24</creation_date_time>
+            <file_size unit="byte">57871</file_size>
+            <records>1347</records>
         </File>
         <XML_Schema>
             <name>PDS4_CLIPPER_1K00_1000.xsd</name>
@@ -40,9 +40,9 @@
     <File_Area_XML_Schema>
         <File>
             <file_name>PDS4_CLIPPER_1K00_1000.sch</file_name>
-            <creation_date_time>2024-02-27T15:40:11</creation_date_time>
-            <file_size unit="byte">12841</file_size>
-            <records>213</records>
+            <creation_date_time>2024-02-27T16:16:24</creation_date_time>
+            <file_size unit="byte">13107</file_size>
+            <records>220</records>
         </File>
         <XML_Schema>
             <name>PDS4_CLIPPER_1K00_1000.sch</name>
