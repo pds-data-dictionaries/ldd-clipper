@@ -751,6 +751,27 @@
         </DD_Value_Domain>
     </DD_Attribute>
 
+    <DD_Attribute>
+        <name>frame_capture_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.frame_capture_start_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>timestamp of the EIS Digital board (DB) receipt of the first 
+        detector line read out for a given frame. The detector can read out lines from
+        multiple colors in the same frame and send each color to a separate TDI collection
+        in memory where each TDI collection is associated with a unique AID. 
+        However, each AID packet will have the same frame_capture_start_count for a given frame. 
+        Thus, need this value to derive the actual starttime for a given TDI row.</definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <formation_rule>sssssssss.mm[m]</formation_rule>
+            <minimum_characters>1</minimum_characters>
+            <maximum_characters>255</maximum_characters>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
     <DD_Attribute> 
         <name>filter_used</name>
         <version_id>1.0</version_id>
@@ -1512,6 +1533,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>clipper.fpm_temp2</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clipper.frame_capture_start_count</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
