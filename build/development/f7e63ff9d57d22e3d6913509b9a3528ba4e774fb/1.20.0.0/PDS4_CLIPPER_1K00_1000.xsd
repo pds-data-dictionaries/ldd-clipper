@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:16:48 UTC 2024 -->
-  <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Wed Feb 28 00:22:28 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.21.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.0.0.0 - clipper: - Clipper                                              -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -15,7 +15,7 @@
     attributeFormDefault="unqualified"
     version="1.0.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1L00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -68,6 +68,8 @@
 		    fpm_temp1
 		    fpm_temp2
 		    frame_capture_start_count
+		    gimbal_alongtrack
+		    gimbal_crosstrack
 		    
 		   
     
@@ -145,6 +147,8 @@
       <xs:element name="compression_flag" type="clipper:compression_flag" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="filter_used" type="clipper:filter_used" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="nframes" type="clipper:nframes" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gimbal_alongtrack" type="clipper:gimbal_alongtrack" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="gimbal_crosstrack" type="clipper:gimbal_crosstrack" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="Detector_Region" type="clipper:Detector_Region" minOccurs="0" maxOccurs="6"> </xs:element>
       <xs:element name="Checkline_Row" type="clipper:Checkline_Row" minOccurs="0" maxOccurs="6"> </xs:element>
       <xs:element name="row_time_padding" type="clipper:row_time_padding" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -615,6 +619,32 @@
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
      <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gimbal_alongtrack">
+    <xs:annotation>
+      <xs:documentation>Gimbal motor position in steps in the
+        along-track direction of spacecraft motion. This is measured as
+        an offset from the "home" position. 0.046875 degrees per step.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-649"/>
+     <xs:maxInclusive value="661"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gimbal_crosstrack">
+    <xs:annotation>
+      <xs:documentation>Gimbal motor position in steps in the
+        cross-track direction of spacecraft motion. This is measured as
+        an offset from the "home" position. 0.046875 degrees per step.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-651"/>
+     <xs:maxInclusive value="651"/>
 	   </xs:restriction>
   </xs:simpleType>
 

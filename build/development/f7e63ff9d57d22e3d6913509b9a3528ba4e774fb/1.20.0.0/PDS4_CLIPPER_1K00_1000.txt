@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Wed Feb 28 00:16:24 UTC 2024
+   Time                   Wed Feb 28 00:22:28 UTC 2024
    Common Schema          [PDS4_PDS_1K00.xsd]
    Common Schematron      [PDS4_PDS_1K00.sch]
    IM Version Id:         1.20.0.0
@@ -30,8 +30,8 @@ Parameters:
 
 Summary:
    Classes                7
-   Attributes             78
-   Associations           86
+   Attributes             80
+   Associations           88
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -93,6 +93,8 @@ Parsed Input - Header:
 		    fpm_temp1
 		    fpm_temp2
 		    frame_capture_start_count
+		    gimbal_alongtrack
+		    gimbal_crosstrack
 		    
 		   
     
@@ -351,6 +353,20 @@ Parsed Input - Attributes:
    version                1.20
    value data type        ASCII_Short_String_Collapsed
    description            Gain state of the EIS detector when the image was taken.
+
+   name                   gimbal_alongtrack
+   version                1.20
+   value data type        ASCII_Integer
+   description            Gimbal motor position in steps in the along-track direction of spacecraft motion. This is measured as an offset from the "home" position. 0.046875 degrees per step. 
+   minimum value          -649
+   maximum value          661
+
+   name                   gimbal_crosstrack
+   version                1.20
+   value data type        ASCII_Integer
+   description            Gimbal motor position in steps in the cross-track direction of spacecraft motion. This is measured as an offset from the "home" position. 0.046875 degrees per step. 
+   minimum value          -651
+   maximum value          651
 
    name                   nframes
    version                1.20
@@ -809,6 +825,16 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      clipper.nframes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clipper.gimbal_alongtrack
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      clipper.gimbal_crosstrack
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
