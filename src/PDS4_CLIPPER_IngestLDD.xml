@@ -60,6 +60,8 @@
 		    fpm_temp1
 		    fpm_temp2
 		    frame_capture_start_count
+		    gimbal_alongtrack
+		    gimbal_crosstrack
 		    
 		   
     </comment>
@@ -837,6 +839,40 @@
                 <value>LOW</value>
                 <value_meaning>EIS in low gain state.</value_meaning>
             </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>gimbal_alongtrack</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.gimbal_alongtrack</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Gimbal motor position in steps in the along-track direction of spacecraft motion. 
+         This is measured as an offset from the "home" position. 0.046875 degrees per step.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>-649</minimum_value>
+            <maximum_value>661</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> 
+        <name>gimbal_crosstrack</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clipper.gimbal_crosstrack</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>APL</submitter_name>
+        <definition>Gimbal motor position in steps in the cross-track direction of spacecraft motion. 
+         This is measured as an offset from the "home" position. 0.046875 degrees per step.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>-651</minimum_value>
+            <maximum_value>651</maximum_value>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -1669,6 +1705,18 @@
         </DD_Association>
         <DD_Association> <!-- WAC and NAC-->
             <identifier_reference>clipper.nframes</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.gimbal_alongtrack</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association> <!-- WAC and NAC-->
+            <identifier_reference>clipper.gimbal_crosstrack</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
