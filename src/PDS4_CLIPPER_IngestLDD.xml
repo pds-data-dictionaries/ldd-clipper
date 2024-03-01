@@ -62,11 +62,10 @@
 		    frame_capture_start_count
 		    gimbal_alongtrack
 		    gimbal_crosstrack
-		    
-		   
+         
     </comment>
     
-    <last_modification_date_time>2024-02-21T17:00Z</last_modification_date_time>
+    <last_modification_date_time>2024-02-28T14:00Z</last_modification_date_time>
 
 <!-- Begin attribute definitions -->
     
@@ -1128,7 +1127,7 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>Status of onboard algorithm which applies a temporal average of 
-            successive lines in an IR image; when enabled, THEMIS TDI averages 16 
+            successive lines in an IR image; when enabled, ETHEMIS TDI averages 16 
             detector rows to equal one line in an IR image. “ENABLED” or “DISABLED”.</definition>
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
@@ -1534,7 +1533,7 @@
     </DD_Class>
 
 
-    <!-- Beginning of EIS_Parameters Class definition, current attributes based on LROC  -->
+    <!-- Beginning of EIS_Parameters Class definition -->
     
     <DD_Class>
         <name>EIS_Parameters</name>
