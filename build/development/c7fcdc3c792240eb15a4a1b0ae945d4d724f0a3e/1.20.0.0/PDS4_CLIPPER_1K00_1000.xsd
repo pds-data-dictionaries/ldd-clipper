@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Fri Mar 01 16:36:29 UTC 2024 -->
+  <!-- PDS4 XML/Schema for Name Space Id:clipper  Version:1.0.0.0 - Tue Mar 05 00:33:59 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -70,6 +70,9 @@
 		    frame_capture_start_count
 		    gimbal_alongtrack
 		    gimbal_crosstrack
+		    
+		-T.Hare (2024-03-04)
+		  - removed ETHEMIS until the team is ready to add attributes
          
     
     </xs:documentation>
@@ -161,25 +164,6 @@
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
-  <xs:complexType name="ETHEMIS_Parameters">
-    <xs:annotation>
-      <xs:documentation>The class contain all the instrument specific
-        attributes for the E-THEMIS instrument.</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="upload_id" type="clipper:upload_id" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="maximum_brightness_temperature" type="clipper:maximum_brightness_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="minimum_brightness_temperature" type="clipper:minimum_brightness_temperature" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="spatial_summing" type="clipper:spatial_summing" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="time_delay_integration_flag" type="clipper:time_delay_integration_flag" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="uncorrected_sclk_start_count" nillable="true" type="clipper:uncorrected_sclk_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="compression_flag" type="clipper:compression_flag" minOccurs="0" maxOccurs="1"> </xs:element>
-    </xs:sequence>
-    <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="clipper:time_delay_integration_flag = ('DISABLED', 'ENABLED')"/> -->
-    <!-- End assert statements for schematron - Enumerated Values -->
-  </xs:complexType>
-
   <xs:complexType name="Observation_Information">
     <xs:annotation>
       <xs:documentation>The Observation_Information class provides
@@ -201,7 +185,6 @@
       <xs:element name="data_quality_id" type="clipper:data_quality_id" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="data_quality_desc" type="clipper:data_quality_desc" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="EIS_Parameters" type="clipper:EIS_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="ETHEMIS_Parameters" type="clipper:ETHEMIS_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="SUDA_Parameters" type="clipper:SUDA_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
@@ -647,25 +630,6 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="maximum_brightness_temperature_WO_Units">
-    <xs:restriction base="pds:ASCII_Real">
-     <xs:minInclusive value="-1.7976931348623157e308"/>
-     <xs:maxInclusive value="1.7976931348623157e308"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="maximum_brightness_temperature">
-    <xs:annotation>
-      <xs:documentation>Maximum brightness temperature value measured
-        within the image.</xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="clipper:maximum_brightness_temperature_WO_Units">
-        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
   <xs:simpleType name="middle_temperature_fpa_WO_Units">
     <xs:restriction base="pds:ASCII_Real">
      <xs:minInclusive value="-1.7976931348623157e308"/>
@@ -703,25 +667,6 @@
      <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
-
-  <xs:simpleType name="minimum_brightness_temperature_WO_Units">
-    <xs:restriction base="pds:ASCII_Real">
-     <xs:minInclusive value="-1.7976931348623157e308"/>
-     <xs:maxInclusive value="1.7976931348623157e308"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="minimum_brightness_temperature">
-    <xs:annotation>
-      <xs:documentation>Minimum brightness temperature value measured
-        within the image.</xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="clipper:minimum_brightness_temperature_WO_Units">
-        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
 
   <xs:complexType name="mission_phase_name">
     <xs:annotation>
@@ -1141,19 +1086,6 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="spatial_summing">
-    <xs:annotation>
-      <xs:documentation>Onboard spatial average of NxN set of pixels,
-        where N is the value of the keyword. SPATIAL_SUMMING = 1 implies
-        that no spatial averaging has been applied to the image.
-        .</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Integer">
-     <xs:minInclusive value="1"/>
-     <xs:maxInclusive value="9223372036854775807"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name="start_time_WO_Units">
     <xs:restriction base="pds:ASCII_Real">
      <xs:minInclusive value="-1.7976931348623157e308"/>
@@ -1299,19 +1231,6 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="time_delay_integration_flag">
-    <xs:annotation>
-      <xs:documentation>Status of onboard algorithm which applies a
-        temporal average of successive lines in an IR image; when
-        enabled, ETHEMIS TDI averages 16 detector rows to equal one line
-        in an IR image. “ENABLED” or “DISABLED”.</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
-     <xs:minLength value="1"/>
-     <xs:maxLength value="255"/>
-	   </xs:restriction>
-  </xs:simpleType>
-
   <xs:complexType name="tof_mean">
     <xs:annotation>
 <xs:documentation>Selected TOF waveform mean.</xs:documentation>
@@ -1342,21 +1261,6 @@
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="pds:ASCII_Real">
-        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:complexType name="uncorrected_sclk_start_count">
-    <xs:annotation>
-      <xs:documentation>The spacecraft clock value (in seconds) when the
-        instrument was commanded to acquire an observation. This can
-        differ from the spacecraft_clock_start_count by as much as 4
-        seconds, depending on which bands are acquired in the
-        image.</xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base="pds:ASCII_Short_String_Collapsed">
         <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
       </xs:extension>
     </xs:simpleContent>

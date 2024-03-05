@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Fri Mar 01 16:36:29 UTC 2024 -->
-  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
+  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Tue Mar 05 00:33:50 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -138,27 +138,6 @@
       <sch:assert test="@unit = ('K', 'degC')">
         <title>clipper:EIS_Parameters/clipper:temperature_telescope/clipper:temperature_telescope</title>
         The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:maximum_brightness_temperature">
-      <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:ETHEMIS_Parameters/clipper:maximum_brightness_temperature/clipper:maximum_brightness_temperature</title>
-        The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:minimum_brightness_temperature">
-      <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:ETHEMIS_Parameters/clipper:minimum_brightness_temperature/clipper:minimum_brightness_temperature</title>
-        The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:time_delay_integration_flag">
-      <sch:assert test=". = ('DISABLED', 'ENABLED')">
-        <title>clipper:ETHEMIS_Parameters/clipper:time_delay_integration_flag/clipper:time_delay_integration_flag</title>
-        The attribute clipper:ETHEMIS_Parameters/clipper:time_delay_integration_flag must be equal to one of the following values 'DISABLED', 'ENABLED'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Fri Mar 01 16:36:20 UTC 2024 -->
-  <!-- Generated from the PDS4 Information Model Version 1.21.0.0 - System Build 14.0 -->
+  <!-- PDS4 Schematron for Name Space Id:clipper  Version:1.0.0.0 - Tue Mar 05 00:33:37 UTC 2024 -->
+  <!-- Generated from the PDS4 Information Model Version 1.19.0.0 - System Build 13.0 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -141,27 +141,6 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:maximum_brightness_temperature">
-      <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:ETHEMIS_Parameters/clipper:maximum_brightness_temperature/clipper:maximum_brightness_temperature</title>
-        The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:minimum_brightness_temperature">
-      <sch:assert test="@unit = ('K', 'degC')">
-        <title>clipper:ETHEMIS_Parameters/clipper:minimum_brightness_temperature/clipper:minimum_brightness_temperature</title>
-        The attribute @unit must be equal to one of the following values 'K', 'degC'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:rule context="clipper:ETHEMIS_Parameters/clipper:time_delay_integration_flag">
-      <sch:assert test=". = ('DISABLED', 'ENABLED')">
-        <title>clipper:ETHEMIS_Parameters/clipper:time_delay_integration_flag/clipper:time_delay_integration_flag</title>
-        The attribute clipper:ETHEMIS_Parameters/clipper:time_delay_integration_flag must be equal to one of the following values 'DISABLED', 'ENABLED'.</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
     <sch:rule context="clipper:Observation_Information/clipper:mission_phase_name">
       <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('Arrival', 'Disposal', 'Interplanetary Cruise', 'Launch', 'Prelaunch', 'Tour')))) then false() else true()">
         <title>clipper:Observation_Information/clipper:mission_phase_name/clipper:mission_phase_name</title>
@@ -184,23 +163,23 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:SUDA_Event/clipper:qi_max_amplitude">
-      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel')">
+      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'pixel')">
         <title>clipper:SUDA_Event/clipper:qi_max_amplitude/clipper:qi_max_amplitude</title>
-        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'pixel'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:SUDA_Event/clipper:qt_max_amplitude">
-      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel')">
+      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'pixel')">
         <title>clipper:SUDA_Event/clipper:qt_max_amplitude/clipper:qt_max_amplitude</title>
-        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'pixel'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="clipper:SUDA_Event/clipper:qv_max_amplitude">
-      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel')">
+      <sch:assert test="@unit = ('DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'pixel')">
         <title>clipper:SUDA_Event/clipper:qv_max_amplitude/clipper:qv_max_amplitude</title>
-        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'electrons', 'nm/mm', 'pixel'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'DN', 'W/m**2/sr/nm/(DN/s)', 'electron/DN', 'pixel'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
