@@ -63,10 +63,12 @@
 		    gimbal_alongtrack
 		    gimbal_crosstrack
 		    
-		   
+		-T.Hare (2024-03-04)
+		  - removed ETHEMIS until the team is ready to add attributes
+         
     </comment>
     
-    <last_modification_date_time>2024-02-21T17:00Z</last_modification_date_time>
+    <last_modification_date_time>2024-04-04T17:30Z</last_modification_date_time>
 
 <!-- Begin attribute definitions -->
     
@@ -1075,76 +1077,9 @@
         </DD_Value_Domain>
     </DD_Attribute>
     
-    <!-- E-THEMIS attributes -->
-
-    <DD_Attribute> 
-        <name>maximum_brightness_temperature</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.maximum_brightness_temperature</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Maximum brightness temperature value measured within the image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-    
-    <DD_Attribute> 
-        <name>minimum_brightness_temperature</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.minimum_brightness_temperature</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Minimum brightness temperature value measured within the image.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Real</value_data_type>
-            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute> 
-        <name>spatial_summing</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.spatial_summing</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Onboard spatial average of NxN set of pixels, where N is the value of 
-            the keyword. SPATIAL_SUMMING = 1 implies that no spatial averaging has been 
-            applied to the image. .</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_Integer</value_data_type>
-            <minimum_value>1</minimum_value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
-        <name>time_delay_integration_flag</name>
-        <version_id>1.0</version_id>
-        <local_identifier>clipper.time_delay_integration_flag</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>IMG</submitter_name>
-        <definition>Status of onboard algorithm which applies a temporal average of 
-            successive lines in an IR image; when enabled, THEMIS TDI averages 16 
-            detector rows to equal one line in an IR image. “ENABLED” or “DISABLED”.</definition>
-        <DD_Value_Domain>
-            <enumeration_flag>true</enumeration_flag>
-            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <DD_Permissible_Value>
-                <value>ENABLED</value>
-                <value_meaning>The commanded time delay integration was enabled.</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>DISABLED</value>
-                <value_meaning>The commanded time delay integration was disabled.</value_meaning>
-            </DD_Permissible_Value>
-        </DD_Value_Domain>
-    </DD_Attribute>
-
-    <DD_Attribute>
+<!--    begin E-THEMIS attributes - place holder
+        
+     <DD_Attribute>
         <name>uncorrected_sclk_start_count</name>
         <version_id>0.1</version_id>
         <local_identifier>clipper.uncorrected_sclk_start_count</local_identifier>
@@ -1162,6 +1097,7 @@
             <maximum_characters>255</maximum_characters>
         </DD_Value_Domain>
     </DD_Attribute>
+-->
 
     <!-- begin SUDA attributes -->
 
@@ -1511,12 +1447,14 @@
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
+<!--
         <DD_Association>
             <identifier_reference>clipper.ETHEMIS_Parameters</identifier_reference>
             <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
+-->
         <DD_Association>
             <identifier_reference>clipper.SUDA_Parameters</identifier_reference>
             <reference_type>component_of</reference_type>
@@ -1534,7 +1472,7 @@
     </DD_Class>
 
 
-    <!-- Beginning of EIS_Parameters Class definition, current attributes based on LROC  -->
+    <!-- Beginning of EIS_Parameters Class definition -->
     
     <DD_Class>
         <name>EIS_Parameters</name>
@@ -1843,7 +1781,7 @@
 
     <!-- End of EIS Checkline_Row Class definition -->
     
-    <!-- Beginning of ETHEMIS_Parameters Class definition, just a wag  -->
+    <!-- Beginning of ETHEMIS_Parameters Class definition, future place holder
     
     <DD_Class>
         <name>ETHEMIS_Parameters</name>
@@ -1853,51 +1791,13 @@
         <definition>The class contain all the instrument specific attributes for the E-THEMIS instrument.</definition>
         
         <DD_Association>
-            <identifier_reference>clipper.upload_id</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        
-        <DD_Association>
-            <identifier_reference>clipper.maximum_brightness_temperature</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.minimum_brightness_temperature</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.spatial_summing</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.time_delay_integration_flag</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-        <DD_Association>
             <identifier_reference>clipper.uncorrected_sclk_start_count</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
-        <DD_Association>
-            <identifier_reference>clipper.compression_flag</identifier_reference>
-            <reference_type>attribute_of</reference_type>
-            <minimum_occurrences>0</minimum_occurrences>
-            <maximum_occurrences>1</maximum_occurrences>
-        </DD_Association>
-    </DD_Class>
-    
-    <!-- end of ETHEMIS_Parameters Class definition -->
+ 
+    end of ETHEMIS_Parameters Class definition -->
 
     <!-- Beginning of SUDA_Parameters Class definition  -->
     <DD_Class>
