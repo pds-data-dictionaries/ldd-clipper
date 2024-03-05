@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Wed Feb 28 00:30:54 UTC 2024
+   Time                   Tue Mar 05 00:33:59 UTC 2024
    Common Schema          [PDS4_PDS_1K00.xsd]
    Common Schematron      [PDS4_PDS_1K00.sch]
    IM Version Id:         1.20.0.0
@@ -29,9 +29,9 @@ Parameters:
    Merge with Master      false
 
 Summary:
-   Classes                7
-   Attributes             80
-   Associations           88
+   Classes                6
+   Attributes             75
+   Associations           80
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -96,9 +96,11 @@ Parsed Input - Header:
 		    gimbal_alongtrack
 		    gimbal_crosstrack
 		    
-		   
+		-T.Hare (2024-03-04)
+		  - removed ETHEMIS until the team is ready to add attributes
+         
     
-   Last Modification Time 2024-02-21T17:00Z
+   Last Modification Time 2024-04-04T17:30Z
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -434,37 +436,6 @@ Parsed Input - Attributes:
    value data type        ASCII_NonNegative_Integer
    description            The spacecraft_clock_count_partition attribute indicates the clock partition active for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes. 
 
-   name                   maximum_brightness_temperature
-   version                1.20
-   value data type        ASCII_Real
-   description            Maximum brightness temperature value measured within the image.
-   unit of measure type   Units_of_Temperature
-
-   name                   minimum_brightness_temperature
-   version                1.20
-   value data type        ASCII_Real
-   description            Minimum brightness temperature value measured within the image.
-   unit of measure type   Units_of_Temperature
-
-   name                   spatial_summing
-   version                1.20
-   value data type        ASCII_Integer
-   description            Onboard spatial average of NxN set of pixels, where N is the value of the keyword. SPATIAL_SUMMING = 1 implies that no spatial averaging has been applied to the image. .
-   minimum value          1
-
-   name                   time_delay_integration_flag
-   version                1.20
-   value data type        ASCII_Short_String_Collapsed
-   description            Status of onboard algorithm which applies a temporal average of successive lines in an IR image; when enabled, THEMIS TDI averages 16 detector rows to equal one line in an IR image. “ENABLED” or “DISABLED”.
-
-   name                   uncorrected_sclk_start_count
-   version                1.20
-   value data type        ASCII_Short_String_Collapsed
-   description            The spacecraft clock value (in seconds) when the instrument was commanded to acquire an observation. This can differ from the spacecraft_clock_start_count by as much as 4 seconds, depending on which bands are acquired in the image.
-   nillable               true
-   minimum characters     1
-   maximum characters     255
-
    name                   event_count
    version                1.20
    value data type        ASCII_Integer
@@ -667,11 +638,6 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      clipper.EIS_Parameters
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        component_of
-
-      local identifier      clipper.ETHEMIS_Parameters
       minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
@@ -912,49 +878,6 @@ Parsed Input - Classes:
 
       local identifier      clipper.readout_order
       minimum occurrences   1
-      maximum occurrences   1
-      reference type        attribute_of
-
-   name                   ETHEMIS_Parameters
-   description            The class contain all the instrument specific attributes for the E-THEMIS instrument.
-   is abstract            false
-   is choice              false
-   subclass of            USER
-
-   Associations
-
-      local identifier      clipper.upload_id
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      clipper.maximum_brightness_temperature
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      clipper.minimum_brightness_temperature
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      clipper.spatial_summing
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      clipper.time_delay_integration_flag
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      clipper.uncorrected_sclk_start_count
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      clipper.compression_flag
-      minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
 

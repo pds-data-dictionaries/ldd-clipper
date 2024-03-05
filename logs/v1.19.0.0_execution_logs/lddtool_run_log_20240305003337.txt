@@ -3,7 +3,7 @@
 >>  INFO IM Version Id: 1.19.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.25
->>  INFO Date: Wed Feb 28 00:30:55 UTC 2024
+>>  INFO Date: Tue Mar 05 00:33:37 UTC 2024
 >>  INFO PARENT_DIR: /tmp/lddtool-14.3.0
 >>  INFO SCRIPT_DIR: /tmp/lddtool-14.3.0/bin
 >>  INFO LIB_DIR: /tmp/lddtool-14.3.0/lib
@@ -19,7 +19,6 @@
 >>> INFO Attribute: <aid> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <command_sequence_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <image_id> - A 'nillable' attribute was found that is not a required attribute in at least one class.
->>> INFO Attribute: <uncorrected_sclk_start_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <event_count> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <epoch> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <start_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
@@ -71,9 +70,6 @@
 >>> INFO Attribute: <readout_start_col> - The default maximum value provided by the attribute's data type is being overridden with 4095
 >>> INFO Attribute: <readout_end_col> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <readout_end_col> - The default maximum value provided by the attribute's data type is being overridden with 4095
->>> INFO Attribute: <spatial_summing> - The default minimum value provided by the attribute's data type is being overridden with 1
->>> INFO Attribute: <uncorrected_sclk_start_count> - The default minimum characters provided by the attribute's data type is being overridden with 1
->>> INFO Attribute: <uncorrected_sclk_start_count> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> INFO Attribute: <event_count> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <start_time> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <category> - This local attribute has a duplicate in the PDS4 data dictionary.
